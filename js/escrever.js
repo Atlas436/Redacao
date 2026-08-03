@@ -2,6 +2,51 @@
    Lógica da página escrever.html
 =========================================================== */
 
+function renderExemploEnem() {
+  const alvo = document.getElementById("exemplo-enem");
+  if (!alvo || typeof EXEMPLO_ENEM === "undefined") return;
+
+  alvo.innerHTML = `
+    <div class="tema-card">
+      <span class="ano">TEMA DE TREINO</span>
+      <h3>${EXEMPLO_ENEM.tema}</h3>
+    </div>
+    <div class="resultado-item ok">
+      <span class="titulo">1. INTRODUÇÃO</span>
+      <p>${EXEMPLO_ENEM.introducao}</p>
+    </div>
+    <div class="resultado-item ok">
+      <span class="titulo">2. DESENVOLVIMENTO I</span>
+      <p>${EXEMPLO_ENEM.desenvolvimento1}</p>
+    </div>
+    <div class="resultado-item ok">
+      <span class="titulo">3. DESENVOLVIMENTO II</span>
+      <p>${EXEMPLO_ENEM.desenvolvimento2}</p>
+    </div>
+    <div class="resultado-item ok">
+      <span class="titulo">4. CONCLUSÃO</span>
+      <p>${EXEMPLO_ENEM.conclusao}</p>
+    </div>
+  `;
+}
+
+function renderGenerosUnicamp() {
+  const alvo = document.getElementById("generos-unicamp");
+  if (!alvo || typeof GENEROS_UNICAMP === "undefined") return;
+
+  alvo.innerHTML = GENEROS_UNICAMP.map(g => `
+    <div class="card">
+      <h3>${g.genero}</h3>
+      <p>${g.quando}</p>
+      <p class="uso" style="border-top:2px dashed var(--roxo-med); margin-top:0.6rem; padding-top:0.6rem;"><strong>Estrutura:</strong></p>
+      <ul style="margin:0.3rem 0 0.8rem; padding-left:1.2rem;">
+        ${g.estrutura.map(passo => `<li style="margin-bottom:0.25rem;">${passo}</li>`).join("")}
+      </ul>
+      <p class="uso"><strong>Exemplo de abertura:</strong> <em>"${g.exemplo}"</em></p>
+    </div>
+  `).join("");
+}
+
 function renderConectivos() {
   const alvo = document.getElementById("conectivos");
   alvo.innerHTML = Object.entries(CONECTIVOS).map(([grupo, itens]) => `
@@ -46,6 +91,8 @@ function conjurarProposta() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderExemploEnem();
+  renderGenerosUnicamp();
   renderConectivos();
   document.getElementById("btn-conjurar").addEventListener("click", conjurarProposta);
 });

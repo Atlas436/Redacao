@@ -1061,6 +1061,69 @@ const PERGUNTAS_NORTEADORAS = [
   "Que instituição (Estado, escola, família, mídia...) poderia agir para mudar esse cenário, e como?"
 ];
 
+// Exemplo completo de redação ENEM (tema de treino), parágrafo a parágrafo,
+// usando repertórios já presentes na Biblioteca do Dragão
+const EXEMPLO_ENEM = {
+  tema: "Saúde mental dos jovens na era das redes sociais",
+  introducao: "Na obra 1984, George Orwell descreve uma sociedade vigiada constantemente, incapaz de desfrutar de privacidade genuína — cenário que, guardadas as devidas proporções, ecoa na hiperexposição promovida pelas redes sociais contemporâneas. Nesse contexto, evidencia-se que o uso excessivo dessas plataformas tem comprometido a saúde mental dos jovens brasileiros, problema explicado tanto pela pressão por uma vida idealizada quanto pela ausência de políticas públicas de educação digital.",
+  desenvolvimento1: "Em primeiro lugar, é inegável que a exposição constante a padrões de vida idealizados intensifica quadros de ansiedade entre adolescentes. Segundo o filósofo Byung-Chul Han, em Sociedade do Cansaço, o indivíduo contemporâneo se torna 'explorador de si mesmo', cobrando-se desempenho e felicidade constantes — cobrança amplificada pelas redes sociais, que expõem apenas recortes idealizados da vida alheia. Dessa forma, comparações constantes geram sentimentos de inadequação, sobretudo entre jovens em formação identitária.",
+  desenvolvimento2: "Ademais, a ausência de educação digital nas escolas agrava esse cenário. Embora a Lei de Diretrizes e Bases da Educação (LDB) estabeleça a formação integral do estudante como objetivo da educação básica, poucas escolas brasileiras incluem em seus currículos discussões sobre uso saudável da tecnologia. Por conseguinte, os jovens chegam às redes sociais sem preparo crítico para lidar com a pressão social ali presente, tornando-se mais vulneráveis aos efeitos negativos sobre sua saúde mental.",
+  conclusao: "Portanto, faz-se necessário o enfrentamento desse problema. Cabe ao Ministério da Educação, em parceria com as secretarias estaduais de educação, incluir a educação midiática e digital na grade curricular do ensino fundamental e médio, por meio de oficinas e materiais didáticos específicos, a fim de preparar os estudantes para um uso mais consciente das redes sociais. Somente assim será possível mitigar os impactos do ambiente digital sobre a saúde mental da juventude brasileira."
+};
+
+// Estruturas e exemplos por gênero textual cobrado na UNICAMP (a prova varia
+// o gênero a cada edição, ao contrário do ENEM que é sempre dissertativo)
+const GENEROS_UNICAMP = [
+  {
+    genero: "Carta (aberta ou de denúncia)",
+    quando: "Pede um posicionamento formal dirigido a uma autoridade, instituição ou ao público, denunciando ou defendendo algo.",
+    estrutura: ["Local e data", "Vocativo (a quem se dirige)", "Parágrafo de apresentação do problema", "Parágrafos de argumentação", "Parágrafo de reivindicação/fechamento", "Despedida e identificação do remetente, conforme o comando"],
+    exemplo: "São Paulo, 14 de outubro de 2025. Prezados responsáveis pela fiscalização do trabalho no estado, venho, por meio desta carta, denunciar uma prática recorrente e ainda invisibilizada em nossa sociedade: [...]"
+  },
+  {
+    genero: "Discurso",
+    quando: "Pede um texto para ser lido em voz alta diante de um público específico (assembleia, evento, comunidade).",
+    estrutura: ["Saudação ao público", "Contextualização do tema", "Argumentos organizados, combinando razão e emoção", "Chamado à ação", "Encerramento marcante"],
+    exemplo: "Senhoras e senhores, agradeço a oportunidade de estar aqui hoje para falar sobre um tema que exige urgência: [...]"
+  },
+  {
+    genero: "Manifesto",
+    quando: "Pede a defesa pública e coletiva de uma posição, geralmente em nome de um grupo ou coletivo.",
+    estrutura: ["Identificação do grupo que assina", "Denúncia do problema", "Defesa de princípios e valores", "Reivindicações claras e diretas", "Frase de efeito no fechamento"],
+    exemplo: "Nós, estudantes e pesquisadores brasileiros, vimos a público manifestar nossa preocupação com [...]"
+  },
+  {
+    genero: "Projeto de lei / texto de apresentação",
+    quando: "Pede a formulação (ou apresentação) de uma proposta legislativa.",
+    estrutura: ["Título do projeto", "Justificativa: por que a lei é necessária", "Artigos numerados descrevendo a medida", "Parágrafo final reforçando o benefício social"],
+    exemplo: "Projeto de Lei nº X/2025. Institui medidas de incentivo à igualdade de gênero nas candidaturas ao Congresso Nacional. Justificativa: considerando que [...]"
+  },
+  {
+    genero: "Comunicado formal",
+    quando: "Pede um aviso oficial e objetivo dirigido a um grupo específico (pais, funcionários, comunidade escolar).",
+    estrutura: ["Identificação de quem comunica e para quem", "Assunto declarado logo no início", "Explicação objetiva do fato ou orientação", "Instruções práticas, se houver", "Encerramento cordial"],
+    exemplo: "Comunicado aos responsáveis. Informamos que a escola identificou, entre os alunos, um aumento no hábito de participar de apostas online [...]"
+  },
+  {
+    genero: "Convocação",
+    quando: "Pede a mobilização de pessoas para uma reunião ou ação coletiva.",
+    estrutura: ["Chamada direta ('Convocamos...')", "Motivo da convocação", "Data, hora e local (ou equivalente no enredo)", "Argumento de urgência", "Reforço do convite"],
+    exemplo: "Convocamos todos os moradores do bairro para uma reunião urgente da associação, a fim de discutir [...]"
+  },
+  {
+    genero: "Testemunho",
+    quando: "Pede um relato em primeira pessoa sobre uma experiência vivida, ligada a um problema social.",
+    estrutura: ["Apresentação de quem narra", "Relato da experiência vivida, com detalhes concretos", "Reflexão sobre o impacto pessoal/coletivo do ocorrido", "Fechamento com um apelo ou aprendizado"],
+    exemplo: "Sou aluno do terceiro ano do ensino médio e, neste relato, quero compartilhar uma experiência que mudou minha visão sobre [...]"
+  },
+  {
+    genero: "Postagem / textão de rede social",
+    quando: "Pede um texto no formato e no tom de uma publicação de rede social sobre um tema polêmico.",
+    estrutura: ["Frase de impacto inicial", "Explicação do ponto de vista, com linguagem mais direta (mas ainda formal o suficiente)", "Argumentos com exemplos cotidianos", "Fechamento com reflexão ou chamado ao leitor"],
+    exemplo: "Preciso desabafar sobre algo que tenho visto acontecer com crianças cada vez mais cedo: [...]"
+  }
+];
+
 // Conectivos organizados por função
 const CONECTIVOS = {
   "Para introduzir / apresentar ideia": ["Nos dias atuais,", "Diante desse cenário,", "É notório que", "Sob essa ótica,", "Em meio a esse contexto,"],
