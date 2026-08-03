@@ -61,6 +61,7 @@ function renderLista() {
     <div class="rep-entry">
       <span class="area-label">${labelArea(item.area).toUpperCase()}</span>
       <h3>${item.nome}</h3>
+      ${item.obra ? `<span class="obra">📖 ${item.obra}</span>` : ""}
       <p><span class="conceito">${item.conceito}.</span> ${item.ideia}</p>
       <div class="uso">💡 <strong>Como usar:</strong> ${item.uso}</div>
       <div class="flex-wrap" style="margin-top:0.6rem;">

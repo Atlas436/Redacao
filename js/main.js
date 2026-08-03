@@ -20,23 +20,37 @@ function paginaAtual() {
 }
 
 function montarNav() {
-  const atual = paginaAtual();
   const alvo = document.getElementById("app-nav");
   if (!alvo) return;
+
+  alvo.innerHTML = `
+    <div class="topbar">
+      <div class="topbar-inner">
+        <a href="index.html" class="logo"><span class="dragon-emoji">🐉</span> REDAÇÃO QUEST</a>
+      </div>
+    </div>
+  `;
+}
+
+function montarSidebar() {
+  const atual = paginaAtual();
+  const main = document.querySelector("main.container");
+  if (!main) return;
 
   const links = PAGINAS.map(p => {
     const ativo = p.href === atual ? " active" : "";
     return `<a href="${p.href}" class="${ativo.trim()}">${p.emoji} ${p.label}</a>`;
   }).join("");
 
-  alvo.innerHTML = `
-    <div class="topbar">
-      <div class="topbar-inner">
-        <a href="index.html" class="logo"><span class="dragon-emoji">🐉</span> REDAÇÃO QUEST</a>
-        <nav class="nav-links">${links}</nav>
-      </div>
-    </div>
-  `;
+  const shell = document.createElement("div");
+  shell.className = "layout-shell";
+  const sidebar = document.createElement("nav");
+  sidebar.className = "sidebar";
+  sidebar.innerHTML = links;
+
+  main.parentNode.insertBefore(shell, main);
+  shell.appendChild(sidebar);
+  shell.appendChild(main);
 }
 
 function montarFooter() {
@@ -55,8 +69,28 @@ function montarCRT() {
   document.body.appendChild(overlay);
 }
 
+function montarLoadingSplash() {
+  const splash = document.createElement("div");
+  splash.id = "loading-splash";
+  splash.innerHTML = `
+    <div class="jump-scene">
+      <div class="jump-dragon">🐉</div>
+      <div class="jump-fence">🚧</div>
+      <div class="jump-ground"></div>
+    </div>
+    <p class="pixel-font" style="font-size:0.6rem;color:var(--roxo-claro);">Carregando a Torre...</p>
+  `;
+  document.body.appendChild(splash);
+  setTimeout(() => {
+    splash.classList.add("fade-out");
+    setTimeout(() => splash.remove(), 450);
+  }, 850);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  montarLoadingSplash();
   montarNav();
+  montarSidebar();
   montarFooter();
   montarCRT();
 });
@@ -80,6 +114,28 @@ function rqSalvarSessao(sessao) {
 
 function rqLimparSessoes() {
   localStorage.removeItem(RQ_STORAGE_KEY);
+}
+
+/* ---------- Ticker de frases inspiradoras (usa FRASES_INSPIRADORAS de data.js) ---------- */
+function montarTicker(containerId) {
+  const alvo = document.getElementById(containerId);
+  if (!alvo || typeof FRASES_INSPIRADORAS === "undefined") return;
+
+  const itens = FRASES_INSPIRADORAS.map(f => `<span>"${f.frase}" <span class="autor">— ${f.autor}</span></span>`).join("");
+  alvo.innerHTML = `
+    <div class="ticker-wrap">
+      <div class="ticker-track">${itens}${itens}</div>
+    </div>
+  `;
+}
+
+/* ---------- Conselho do dia do Mago (usa CONSELHOS_MAGO de data.js) ---------- */
+function conselhoDoDia() {
+  if (typeof CONSELHOS_MAGO === "undefined" || CONSELHOS_MAGO.length === 0) return "";
+  const hoje = new Date();
+  const inicioAno = new Date(hoje.getFullYear(), 0, 0);
+  const diaDoAno = Math.floor((hoje - inicioAno) / 86400000);
+  return CONSELHOS_MAGO[diaDoAno % CONSELHOS_MAGO.length];
 }
 
 /* ---------- Tema atual (definido no Oráculo, reaproveitado em outras páginas) ---------- */

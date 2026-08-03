@@ -27,7 +27,10 @@
   <div id="lista-enem"></div>
 
   <h2>🏛️ UNICAMP — como funciona</h2>
-  <p>A prova de redação da UNICAMP costuma ser diferente do ENEM: em vez de sempre pedir dissertação, ela pode propor <strong>gêneros textuais variados</strong> (carta aberta, artigo de opinião, texto dissertativo, entre outros), a partir de uma coletânea de textos-base fornecida na prova. A correção valoriza a adequação ao gênero pedido, a argumentação consistente, a coesão e o domínio da norma culta. Por isso, treine também a leitura crítica de textos de apoio, não só a escrita solta.</p>
+  <p>A prova de redação da UNICAMP costuma ser diferente do ENEM: em vez de pedir sempre uma dissertação, ela traz normalmente <strong>duas propostas de gêneros textuais diferentes</strong> (carta, discurso, manifesto, projeto de lei, testemunho, entre outros) e você escolhe uma, a partir de uma coletânea de textos-base fornecida na prova. A correção valoriza a adequação ao gênero pedido, a argumentação consistente, a coesão e o domínio da norma culta — por isso, treine também a leitura crítica dos textos de apoio, não só a escrita solta.</p>
+
+  <h3>Propostas reais de anos anteriores</h3>
+  <div id="lista-unicamp"></div>
 
   <div class="dialog-box">
     <div class="avatar">🐉</div>
@@ -60,6 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${t.tema}</h3>
         <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
         <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo sobre esse tema</a></p>
+      </div>
+    `).join("");
+
+  document.getElementById("lista-unicamp").innerHTML = TEMAS_UNICAMP
+    .slice().sort((a, b) => b.ano - a.ano)
+    .map(ano => `
+      <div class="tema-card">
+        <span class="ano">UNICAMP ${ano.ano}</span>
+        ${ano.propostas.map(p => `
+          <div style="margin-top:0.6rem; padding-top:0.6rem; border-top:2px dashed var(--roxo-med);">
+            <span class="tag ativo">${p.genero}</span>
+            <h3 style="margin:0.4rem 0;">${p.tema}</h3>
+            <div class="flex-wrap">${p.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
+            <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(p.tema)}">🔮 Consultar o Oráculo sobre essa proposta</a></p>
+          </div>
+        `).join("")}
       </div>
     `).join("");
 
