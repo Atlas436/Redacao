@@ -1063,6 +1063,53 @@ const REPERTORIO = [
     ideia: "Filósofa francesa que trabalhou em fábricas para vivenciar a condição operária, denunciando a desumanização do trabalho industrial repetitivo e defendendo a dignidade do trabalhador.",
     uso: "Bom repertório para temas sobre precarização do trabalho e dignidade humana.",
     temas: ["trabalho", "desigualdade"]
+  },
+
+  // ---------------- QUARTA LEVA (fechando lacunas de temas reais) ----------------
+  {
+    nome: "Lei de Libras",
+    area: "lei",
+    obra: "Lei nº 10.436/2002",
+    conceito: "Reconhecimento oficial da Língua Brasileira de Sinais",
+    ideia: "Reconhece a Libras como meio legal de comunicação da comunidade surda brasileira, obrigando sua difusão em serviços públicos, mas sua aplicação na educação ainda é desigual pelo país.",
+    uso: "Repertório direto para temas sobre inclusão de pessoas surdas e acessibilidade educacional.",
+    temas: ["educacao", "desigualdade"]
+  },
+  {
+    nome: "ANCINE — Lei do Audiovisual",
+    area: "lei",
+    obra: "Agência Nacional do Cinema / Lei nº 8.685/1993",
+    conceito: "Fomento ao cinema nacional",
+    ideia: "Órgão regulador que administra incentivos fiscais para a produção de filmes brasileiros, tentando democratizar o acesso da população ao cinema nacional, ainda concentrado nos grandes centros urbanos.",
+    uso: "Bom repertório institucional para temas sobre acesso à cultura e ao cinema no Brasil.",
+    temas: ["cultura", "educacao"]
+  },
+  {
+    nome: "ACNUR — Agência da ONU para Refugiados",
+    area: "dados",
+    obra: "Relatórios sobre deslocamento forçado global",
+    conceito: "Proteção internacional a refugiados",
+    ideia: "Agência da ONU responsável por proteger pessoas forçadas a deixar seus países por perseguição, guerra ou violência, e por pressionar governos a garantir acolhimento e direitos básicos.",
+    uso: "Fonte de autoridade para temas sobre refugiados, migração forçada e direitos humanos.",
+    temas: ["desigualdade", "democracia"]
+  },
+  {
+    nome: "Estatuto do Refugiado (Brasil)",
+    area: "lei",
+    obra: "Lei nº 9.474/1997",
+    conceito: "Marco legal brasileiro para refugiados",
+    ideia: "Define os mecanismos de proteção e os direitos de pessoas refugiadas no Brasil, sendo referência internacional por sua abrangência na definição de quem pode ser reconhecido como refugiado.",
+    uso: "Repertório direto para temas sobre refugiados e asilo político.",
+    temas: ["desigualdade", "democracia"]
+  },
+  {
+    nome: "CNPq — financiamento à ciência no Brasil",
+    area: "dados",
+    obra: "Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+    conceito: "Fomento público à pesquisa científica",
+    ideia: "Principal agência de fomento à pesquisa científica no Brasil; cortes em seu orçamento afetam diretamente bolsas de estudo, laboratórios e a capacidade do país de produzir ciência própria.",
+    uso: "Bom repertório para temas sobre financiamento à ciência e educação superior no Brasil.",
+    temas: ["educacao"]
   }
 ];
 
@@ -1157,15 +1204,15 @@ const TEMAS_TREINO = [
 
 // Palavras-chave para reconhecer a área de um tema digitado livremente
 const PALAVRAS_CHAVE_TEMA = {
-  "educacao": ["educacao", "escola", "ensino", "alun", "professor", "evasao escolar", "alfabetiz", "universidade", "creche", "pedagog"],
-  "saude-mental": ["saude mental", "ansiedade", "depressao", "bem-estar", "bem estar", "suicidio", "burnout", "esgotamento", "psicolog", "emocional"],
+  "educacao": ["educacao", "escola", "ensino", "alun", "professor", "evasao escolar", "alfabetiz", "universidade", "creche", "pedagog", "surdo", "libras", "inclusao escolar", "ciencia", "pesquisa cientifica", "cinema", "audiovisual", "filme"],
+  "saude-mental": ["saude mental", "ansiedade", "depressao", "bem-estar", "bem estar", "suicidio", "burnout", "esgotamento", "psicolog", "emocional", "solidao", "isolamento social"],
   "tecnologia": ["tecnologia", "internet", "redes sociais", "digital", "dados", "inteligencia artificial", " ia ", "aplicativo", "algoritmo", "vigilancia", "smartphone", "celular"],
-  "meio-ambiente": ["meio ambiente", "clima", "sustentab", "poluicao", "agua", "desmatamento", "aquecimento global", "residuo", "reciclagem"],
+  "meio-ambiente": ["meio ambiente", "clima", "sustentab", "poluicao", "agua", "desmatamento", "aquecimento global", "residuo", "reciclagem", "mobilidade urbana", "transporte publico"],
   "trabalho": ["trabalho", "emprego", "mercado de trabalho", "desemprego", "profissao", "carreira", "trabalhador", "automacao"],
-  "desigualdade": ["desigualdade", "pobreza", "renda", "exclusao", "vulnerab", "fome", "moradia", "periferia"],
+  "desigualdade": ["desigualdade", "pobreza", "renda", "exclusao", "vulnerab", "fome", "moradia", "periferia", "envelhecimento", "idoso", "terceira idade", "gentrificacao", "refugiado", "migrante", "asilo politico", "invisibilidade", "cuidado"],
   "violencia": ["violencia", "seguranca publica", "criminalidade", "abuso", "agressao", "homicidio", "armas"],
-  "cultura": ["cultura", "identidade", "diversidade", "preconceito", "intoleran", "povos", "comunidades tradicionais", "religiao", "racismo", "genero"],
-  "democracia": ["democracia", "politica", "cidadania", "voto", "direitos humanos", "desinformacao", "fake news", "eleicao", "corrupcao"]
+  "cultura": ["cultura", "identidade", "diversidade", "preconceito", "intoleran", "povos", "comunidades tradicionais", "religiao", "racismo", "genero", "heranca africana", "afrodescendente", "quilombo", "cinema", "audiovisual", "filme"],
+  "democracia": ["democracia", "politica", "cidadania", "voto", "direitos humanos", "desinformacao", "fake news", "eleicao", "corrupcao", "registro civil"]
 };
 
 // Dicas rápidas por banca, usadas no filtro de tipo de prova do Oráculo
