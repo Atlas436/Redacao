@@ -86,6 +86,7 @@ function itemResultado(tipo, titulo, texto) {
 function analisarRedacao() {
   const texto = document.getElementById("texto-redacao").value;
   const container = document.getElementById("itens-resultado");
+  const tipoProva = document.getElementById("tipo-prova-corrigir").value;
 
   if (contarPalavras(texto) < 20) {
     container.innerHTML = itemResultado("erro", "TEXTO MUITO CURTO", "Cole uma redação com mais conteúdo para o dragão conseguir analisar.");
@@ -102,6 +103,7 @@ function analisarRedacao() {
   const informais = detectarInformalidades(texto);
 
   let html = "";
+  let partesProposta = [];
 
   // Extensão
   if (nPalavras < 180) {
@@ -112,24 +114,34 @@ function analisarRedacao() {
     html += itemResultado("ok", "EXTENSÃO", `Seu texto tem ${nPalavras} palavras — dentro da faixa esperada.`);
   }
 
-  // Parágrafos
-  if (nParagrafos < 4) {
-    html += itemResultado("alerta", "PARÁGRAFOS", `Foram detectados ${nParagrafos} parágrafo(s). O modelo clássico usa 4 a 5 (introdução, 2 desenvolvimentos, conclusão). Separe seu texto com quebras de linha entre parágrafos.`);
+  if (tipoProva === "unicamp") {
+    // UNICAMP: gênero varia, então não cobramos a estrutura fixa do ENEM
+    const generoSelect = document.getElementById("genero-corrigir");
+    const genero = GENEROS_UNICAMP[generoSelect.value];
+    html += itemResultado("alerta", "PARÁGRAFOS", `Foram detectados ${nParagrafos} parágrafo(s). Na UNICAMP não existe número fixo — o que importa é seguir a estrutura do gênero escolhido, não o modelo dissertativo do ENEM.`);
+    if (genero) {
+      html += itemResultado("alerta", "ADEQUAÇÃO AO GÊNERO", `Você selecionou o gênero <strong>${genero.genero}</strong>. O dragão não consegue verificar isso sozinho — confira manualmente se seu texto inclui: ${genero.estrutura.join("; ")}.`);
+    }
   } else {
-    html += itemResultado("ok", "PARÁGRAFOS", `Foram detectados ${nParagrafos} parágrafos — estrutura compatível com o modelo dissertativo-argumentativo.`);
-  }
+    // Parágrafos (ENEM/VUNESP)
+    if (nParagrafos < 4) {
+      html += itemResultado("alerta", "PARÁGRAFOS", `Foram detectados ${nParagrafos} parágrafo(s). O modelo clássico usa 4 a 5 (introdução, 2 desenvolvimentos, conclusão). Separe seu texto com quebras de linha entre parágrafos.`);
+    } else {
+      html += itemResultado("ok", "PARÁGRAFOS", `Foram detectados ${nParagrafos} parágrafos — estrutura compatível com o modelo dissertativo-argumentativo.`);
+    }
 
-  // Proposta de intervenção
-  const partesProposta = [
-    proposta.temAgente ? "agente" : null,
-    proposta.temAcao ? "ação" : null,
-    proposta.temMeio ? "meio/modo" : null,
-    proposta.temFinalidade ? "finalidade" : null
-  ].filter(Boolean);
-  if (partesProposta.length >= 3) {
-    html += itemResultado("ok", "PROPOSTA DE INTERVENÇÃO", `O dragão identificou possíveis elementos de: ${partesProposta.join(", ")}. Confira se cada um está bem explícito e detalhado.`);
-  } else {
-    html += itemResultado("erro", "PROPOSTA DE INTERVENÇÃO", `Poucos elementos identificados (${partesProposta.join(", ") || "nenhum"}). Sua conclusão deve deixar claro QUEM faz, O QUE faz, COMO faz e PARA QUÊ. Use a Oficina do Mago para gerar um modelo.`);
+    // Proposta de intervenção
+    partesProposta = [
+      proposta.temAgente ? "agente" : null,
+      proposta.temAcao ? "ação" : null,
+      proposta.temMeio ? "meio/modo" : null,
+      proposta.temFinalidade ? "finalidade" : null
+    ].filter(Boolean);
+    if (partesProposta.length >= 3) {
+      html += itemResultado("ok", "PROPOSTA DE INTERVENÇÃO", `O dragão identificou possíveis elementos de: ${partesProposta.join(", ")}. Confira se cada um está bem explícito e detalhado.`);
+    } else {
+      html += itemResultado("erro", "PROPOSTA DE INTERVENÇÃO", `Poucos elementos identificados (${partesProposta.join(", ") || "nenhum"}). Sua conclusão deve deixar claro QUEM faz, O QUE faz, COMO faz e PARA QUÊ. Use a Oficina do Mago para gerar um modelo.`);
+    }
   }
 
   // Conectivos
@@ -163,10 +175,10 @@ function analisarRedacao() {
   container.innerHTML = html;
   document.getElementById("resultado-corrigir").classList.remove("hidden");
   document.getElementById("msg-salvo").classList.add("hidden");
-  window._ultimaAnalise = { nPalavras, nParagrafos, conectivosUsados: conectivosUsados.length, propostaScore: partesProposta.length };
+  window._ultimaAnalise = { nPalavras, nParagrafos, conectivosUsados: conectivosUsados.length, propostaScore: partesProposta.length, tipoProva };
 }
 
-const ITENS_CHECKLIST = [
+const ITENS_CHECKLIST_ENEM = [
   "Competência 1: revisei ortografia, acentuação e pontuação.",
   "Competência 1: as frases estão bem construídas gramaticalmente.",
   "Competência 2: fiquei dentro do tema proposto, sem fugir ou tangenciar.",
@@ -179,27 +191,61 @@ const ITENS_CHECKLIST = [
   "Competência 5: a proposta respeita os direitos humanos."
 ];
 
+function montarChecklistUnicamp(generoIndex) {
+  const genero = GENEROS_UNICAMP[generoIndex];
+  const itensGenero = genero ? genero.estrutura.map(passo => `Incluí no texto: ${passo.toLowerCase()}.`) : [];
+  return [
+    ...itensGenero,
+    "Escrevi no gênero pedido, e não em uma dissertação genérica.",
+    "Usei o tom e o vocabulário adequados ao gênero (formal, mas coerente com quem fala e para quem).",
+    "Revisei ortografia, acentuação e pontuação.",
+    "Meus argumentos seguem uma ordem lógica, com base na coletânea de apoio."
+  ];
+}
+
+function itensChecklistAtuais() {
+  const tipoProva = document.getElementById("tipo-prova-corrigir").value;
+  if (tipoProva === "unicamp") {
+    return montarChecklistUnicamp(document.getElementById("genero-corrigir").value);
+  }
+  return ITENS_CHECKLIST_ENEM;
+}
+
 function renderChecklist() {
+  const itens = itensChecklistAtuais();
   const alvo = document.getElementById("checklist-competencias");
-  alvo.innerHTML = ITENS_CHECKLIST.map((item, i) => `
+  alvo.innerHTML = itens.map((item, i) => `
     <label><input type="checkbox" data-idx="${i}"> ${item}</label>
   `).join("");
 
   alvo.querySelectorAll("input[type=checkbox]").forEach(cb => {
     cb.addEventListener("change", atualizarBarraChecklist);
   });
+  atualizarBarraChecklist();
 }
 
 function atualizarBarraChecklist() {
   const marcados = document.querySelectorAll("#checklist-competencias input:checked").length;
-  const total = ITENS_CHECKLIST.length;
+  const total = document.querySelectorAll("#checklist-competencias input").length || 1;
   document.getElementById("barra-checklist").style.width = `${(marcados / total) * 100}%`;
   document.getElementById("label-checklist").textContent = `${marcados} / ${total} pontos de revisão marcados`;
+}
+
+function popularGenerosCorrigir() {
+  const select = document.getElementById("genero-corrigir");
+  select.innerHTML = GENEROS_UNICAMP.map((g, i) => `<option value="${i}">${g.genero}</option>`).join("");
+}
+
+function atualizarModoProva() {
+  const tipoProva = document.getElementById("tipo-prova-corrigir").value;
+  document.getElementById("campo-genero-corrigir").classList.toggle("hidden", tipoProva !== "unicamp");
+  renderChecklist();
 }
 
 function salvarSessaoCorrecao() {
   const tema = document.getElementById("tema-redacao").value.trim() || "(tema não informado)";
   const marcados = document.querySelectorAll("#checklist-competencias input:checked").length;
+  const total = document.querySelectorAll("#checklist-competencias input").length;
   const analise = window._ultimaAnalise || {};
 
   rqSalvarSessao({
@@ -209,7 +255,7 @@ function salvarSessaoCorrecao() {
     palavras: analise.nPalavras || 0,
     paragrafos: analise.nParagrafos || 0,
     checklist: marcados,
-    checklistTotal: ITENS_CHECKLIST.length
+    checklistTotal: total
   });
 
   document.getElementById("msg-salvo").classList.remove("hidden");
@@ -217,7 +263,10 @@ function salvarSessaoCorrecao() {
 
 document.addEventListener("DOMContentLoaded", () => {
   rqPrefillTema("tema-redacao");
+  popularGenerosCorrigir();
   renderChecklist();
+  document.getElementById("tipo-prova-corrigir").addEventListener("change", atualizarModoProva);
+  document.getElementById("genero-corrigir").addEventListener("change", renderChecklist);
   document.getElementById("btn-corrigir").addEventListener("click", analisarRedacao);
   document.getElementById("btn-limpar").addEventListener("click", () => {
     document.getElementById("texto-redacao").value = "";

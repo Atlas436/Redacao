@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mapa de Temas — ENEM & UNICAMP | Redação Quest</title>
+<title>Mapa de Temas — ENEM, UNICAMP & VUNESP | Redação Quest</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="avatar">🧙</div>
     <div class="fala">
       <span class="nome">MAGO DAS PALAVRAS</span>
-      <p>Conhecer o "inimigo" é metade da batalha. Veja como ENEM e UNICAMP cobram redação, alguns temas reais de provas passadas e uma lista de temas para treinar.</p>
+      <p>Conhecer o "inimigo" é metade da batalha. Veja como ENEM, UNICAMP e VUNESP/Provão Paulista cobram redação, temas reais de provas passadas e uma lista de temas para treinar.</p>
     </div>
   </div>
 
@@ -31,6 +31,12 @@
 
   <h3>Propostas reais de anos anteriores</h3>
   <div id="lista-unicamp"></div>
+
+  <h2>📐 VUNESP / Provão Paulista — como funciona</h2>
+  <p>O Provão Paulista Seriado (organizado pela VUNESP para a rede estadual de São Paulo) segue o mesmo modelo do ENEM: texto <strong>dissertativo-argumentativo</strong>, avaliado pelas mesmas 5 competências (norma culta, compreensão do tema, argumentação, coesão e proposta de intervenção). Ou seja, tudo o que vale para treinar o ENEM vale também aqui.</p>
+
+  <h3>Temas reais de anos anteriores</h3>
+  <div id="lista-vunesp"></div>
 
   <div class="dialog-box">
     <div class="avatar">🐉</div>
@@ -79,6 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(p.tema)}">🔮 Consultar o Oráculo sobre essa proposta</a></p>
           </div>
         `).join("")}
+      </div>
+    `).join("");
+
+  document.getElementById("lista-vunesp").innerHTML = TEMAS_VUNESP
+    .slice().sort((a, b) => b.ano - a.ano)
+    .map(t => `
+      <div class="tema-card">
+        <span class="ano">VUNESP ${t.ano}</span>
+        <h3>${t.tema}</h3>
+        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
+        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo sobre esse tema</a></p>
       </div>
     `).join("");
 

@@ -29,12 +29,27 @@
   </div>
 
   <div class="form-row">
+    <label for="tipo-prova-oraculo">🏫 Tipo de prova</label>
+    <select id="tipo-prova-oraculo">
+      <option value="geral">Ainda não sei / Geral</option>
+      <option value="enem">ENEM</option>
+      <option value="unicamp">UNICAMP</option>
+      <option value="vunesp">VUNESP / Provão Paulista</option>
+    </select>
+  </div>
+
+  <div class="form-row">
     <label for="campo-oraculo">🔎 Título ou tema da redação</label>
     <input type="text" id="campo-oraculo" placeholder="ex: Desafios para a valorização de comunidades e povos tradicionais no Brasil">
   </div>
   <button class="btn-pixel" id="btn-consultar">🔮 Consultar o oráculo</button>
 
   <div id="resultado-oraculo" class="hidden mt-2">
+
+    <div class="resultado-item ok">
+      <span class="titulo">DICA DA BANCA</span>
+      <p id="dica-banca"></p>
+    </div>
 
     <h2>🧭 Áreas identificadas</h2>
     <div class="flex-wrap" id="areas-identificadas"></div>

@@ -37,6 +37,9 @@ function consultarOraculo() {
 
   localStorage.setItem("rq-tema-atual", tema);
 
+  const tipoProva = document.getElementById("tipo-prova-oraculo").value;
+  document.getElementById("dica-banca").textContent = (typeof DICAS_BANCA !== "undefined" && DICAS_BANCA[tipoProva]) || "";
+
   const areas = identificarAreas(tema);
   const areasBox = document.getElementById("areas-identificadas");
 

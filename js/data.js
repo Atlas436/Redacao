@@ -953,6 +953,116 @@ const REPERTORIO = [
     ideia: "Canção que narra a trajetória de um operário migrante que constrói prédios luxuosos na cidade grande sem nunca poder morar neles, expondo a desigualdade social brasileira.",
     uso: "Repertório musical acessível para temas sobre trabalho, moradia e desigualdade urbana.",
     temas: ["trabalho", "desigualdade"]
+  },
+
+  // ---------------- TERCEIRA LEVA (histórias, leis e pensadores adicionais) ----------------
+  {
+    nome: "Reforma Psiquiátrica Brasileira",
+    area: "historia",
+    obra: "Luta Antimanicomial, décadas de 1970-2001 (Lei Paulo Delgado, nº 10.216/2001)",
+    conceito: "Fim dos manicômios e cuidado em liberdade",
+    ideia: "Movimento social e sanitário que denunciou as condições desumanas dos hospitais psiquiátricos brasileiros e defendeu a substituição do modelo asilar por uma rede de cuidado em liberdade, na comunidade.",
+    uso: "Repertório histórico essencial para temas sobre saúde mental e direitos das pessoas com transtornos psíquicos.",
+    temas: ["saude-mental", "democracia"]
+  },
+  {
+    nome: "ECO-92 (Rio-92)",
+    area: "historia",
+    obra: "Conferência das Nações Unidas, Rio de Janeiro, 1992",
+    conceito: "Cooperação internacional pelo meio ambiente",
+    ideia: "Conferência da ONU realizada no Brasil que colocou o desenvolvimento sustentável na agenda internacional, gerando compromissos como a Agenda 21 e influenciando acordos ambientais posteriores.",
+    uso: "Bom repertório histórico-nacional para temas sobre meio ambiente e cooperação internacional.",
+    temas: ["meio-ambiente", "democracia"]
+  },
+  {
+    nome: "Movimento Fridays for Future",
+    area: "historia",
+    obra: "Greve estudantil global pelo clima, desde 2018",
+    conceito: "Mobilização jovem pelo clima",
+    ideia: "Movimento iniciado pela ativista Greta Thunberg que levou estudantes de todo o mundo às ruas para exigir ações concretas dos governos contra as mudanças climáticas.",
+    uso: "Repertório contemporâneo para temas sobre meio ambiente, ativismo e participação política jovem.",
+    temas: ["meio-ambiente", "democracia"]
+  },
+  {
+    nome: "Lei Rouanet",
+    area: "lei",
+    obra: "Lei nº 8.313/1991",
+    conceito: "Incentivo fiscal à cultura",
+    ideia: "Permite que empresas e pessoas físicas destinem parte do imposto de renda devido para financiar projetos culturais aprovados, sendo o principal mecanismo de fomento cultural no Brasil.",
+    uso: "Bom para embasar propostas de intervenção sobre acesso à cultura e valorização de identidades culturais.",
+    temas: ["cultura", "educacao"]
+  },
+  {
+    nome: "Estatuto da Igualdade Racial",
+    area: "lei",
+    obra: "Lei nº 12.288/2010",
+    conceito: "Garantia de direitos à população negra",
+    ideia: "Estabelece um conjunto de políticas para garantir à população negra a efetivação da igualdade de oportunidades e o combate à discriminação racial em diversas áreas da vida social.",
+    uso: "Repertório direto para temas sobre racismo e desigualdade racial no Brasil.",
+    temas: ["desigualdade", "cultura"]
+  },
+  {
+    nome: "Convenção 169 da OIT sobre Povos Indígenas e Tribais",
+    area: "lei",
+    obra: "OIT, 1989 (ratificada pelo Brasil em 2002)",
+    conceito: "Direito à consulta e autodeterminação de povos tradicionais",
+    ideia: "Tratado internacional que garante a povos indígenas e tribais o direito de serem consultados sobre decisões que afetem seus territórios e modos de vida.",
+    uso: "Ótimo repertório para temas sobre povos tradicionais, meio ambiente e cultura.",
+    temas: ["cultura", "desigualdade"]
+  },
+  {
+    nome: "Ailton Krenak",
+    area: "filosofia",
+    obra: "Ideias para Adiar o Fim do Mundo (2019)",
+    conceito: "Crítica indígena ao desenvolvimentismo",
+    ideia: "Pensador indígena brasileiro que questiona a ideia de progresso a qualquer custo e defende outras formas de relação entre humanidade e natureza, baseadas na experiência dos povos originários.",
+    uso: "Repertório nacional muito valorizado para temas sobre meio ambiente, povos tradicionais e crítica ao consumismo.",
+    temas: ["meio-ambiente", "cultura"]
+  },
+  {
+    nome: "Sueli Carneiro",
+    area: "sociologia",
+    obra: "Fundadora do Geledés — Instituto da Mulher Negra",
+    conceito: "Feminismo negro brasileiro",
+    ideia: "Filósofa e ativista brasileira que articula as pautas de gênero e raça, mostrando como o racismo e o machismo se combinam para produzir formas específicas de desigualdade contra mulheres negras.",
+    uso: "Repertório essencial para temas sobre desigualdade de gênero e raça no Brasil.",
+    temas: ["desigualdade", "cultura"]
+  },
+  {
+    nome: "Vandana Shiva",
+    area: "filosofia",
+    obra: "Monoculturas da Mente (1993)",
+    conceito: "Ecofeminismo",
+    ideia: "Ativista e filósofa indiana que denuncia os impactos do agronegócio industrial sobre pequenos agricultores e a biodiversidade, defendendo práticas agrícolas tradicionais e sustentáveis.",
+    uso: "Bom para temas sobre meio ambiente, agronegócio e sustentabilidade.",
+    temas: ["meio-ambiente"]
+  },
+  {
+    nome: "Ha-Joon Chang",
+    area: "sociologia",
+    obra: "Maus Samaritanos (2007)",
+    conceito: "Crítica ao livre mercado imposto a países em desenvolvimento",
+    ideia: "Economista que argumenta que países ricos se desenvolveram usando protecionismo e intervenção estatal, mas hoje recomendam livre mercado irrestrito a países pobres, dificultando seu desenvolvimento.",
+    uso: "Bom para temas sobre desigualdade global e desenvolvimento econômico.",
+    temas: ["desigualdade", "trabalho"]
+  },
+  {
+    nome: "Éclea Bosi",
+    area: "sociologia",
+    obra: "Memória e Sociedade: Lembranças de Velhos (1979)",
+    conceito: "Memória e valorização da pessoa idosa",
+    ideia: "Psicóloga social brasileira que valoriza a memória dos idosos como patrimônio social, denunciando como a sociedade capitalista tende a descartar e silenciar seus mais velhos.",
+    uso: "Repertório certeiro para temas sobre envelhecimento populacional e valorização da pessoa idosa.",
+    temas: ["desigualdade", "cultura"]
+  },
+  {
+    nome: "Simone Weil",
+    area: "filosofia",
+    obra: "A Condição Operária (1951, publicação póstuma)",
+    conceito: "Dignidade do trabalho",
+    ideia: "Filósofa francesa que trabalhou em fábricas para vivenciar a condição operária, denunciando a desumanização do trabalho industrial repetitivo e defendendo a dignidade do trabalhador.",
+    uso: "Bom repertório para temas sobre precarização do trabalho e dignidade humana.",
+    temas: ["trabalho", "desigualdade"]
   }
 ];
 
@@ -1025,6 +1135,12 @@ const TEMAS_UNICAMP = [
   }
 ];
 
+// Temas reais do Provão Paulista (VUNESP) — usa os mesmos 5 critérios do ENEM
+const TEMAS_VUNESP = [
+  { ano: 2025, tema: "Como os adolescentes podem usar as redes sociais sem prejudicar a saúde mental?", areas: ["saude-mental", "tecnologia"] },
+  { ano: 2024, tema: "Gentrificação urbana", areas: ["desigualdade"] }
+];
+
 // Temas de treino originais (não são provas oficiais — uso apenas para prática)
 const TEMAS_TREINO = [
   { tema: "Inteligência artificial e o futuro do mercado de trabalho no Brasil", areas: ["tecnologia", "trabalho"] },
@@ -1050,6 +1166,14 @@ const PALAVRAS_CHAVE_TEMA = {
   "violencia": ["violencia", "seguranca publica", "criminalidade", "abuso", "agressao", "homicidio", "armas"],
   "cultura": ["cultura", "identidade", "diversidade", "preconceito", "intoleran", "povos", "comunidades tradicionais", "religiao", "racismo", "genero"],
   "democracia": ["democracia", "politica", "cidadania", "voto", "direitos humanos", "desinformacao", "fake news", "eleicao", "corrupcao"]
+};
+
+// Dicas rápidas por banca, usadas no filtro de tipo de prova do Oráculo
+const DICAS_BANCA = {
+  geral: "Ainda não sabe qual prova vai fazer? A estrutura dissertativo-argumentativa (ENEM/VUNESP) é a mais comum nos vestibulares brasileiros — é um bom ponto de partida.",
+  enem: "No ENEM, use a estrutura dissertativo-argumentativa: introdução com tese, dois parágrafos de desenvolvimento com repertório, e conclusão com proposta de intervenção completa (agente + ação + meio + finalidade + detalhamento).",
+  unicamp: "Na UNICAMP, confira antes de tudo qual gênero está sendo pedido (carta, discurso, manifesto...) — fugir do gênero derruba a nota mesmo com bons argumentos. Veja os gêneros na Oficina do Mago.",
+  vunesp: "No VUNESP/Provão Paulista, a estrutura é igual à do ENEM: texto dissertativo-argumentativo com proposta de intervenção, avaliado pelas mesmas 5 competências."
 };
 
 // Perguntas norteadoras genéricas para ajudar a entender qualquer tema

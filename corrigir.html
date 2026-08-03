@@ -21,6 +21,19 @@
   </div>
 
   <div class="form-row">
+    <label for="tipo-prova-corrigir">Tipo de prova</label>
+    <select id="tipo-prova-corrigir">
+      <option value="enem">ENEM / VUNESP (dissertativo-argumentativo)</option>
+      <option value="unicamp">UNICAMP (gênero variado)</option>
+    </select>
+  </div>
+
+  <div class="form-row hidden" id="campo-genero-corrigir">
+    <label for="genero-corrigir">Gênero pedido na prova</label>
+    <select id="genero-corrigir"></select>
+  </div>
+
+  <div class="form-row">
     <label for="tema-redacao">Tema da redação (opcional)</label>
     <input type="text" id="tema-redacao" placeholder="ex: Saúde mental dos jovens na era das redes sociais">
   </div>

@@ -26,7 +26,9 @@ function montarNav() {
   alvo.innerHTML = `
     <div class="topbar">
       <div class="topbar-inner">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰ Menu</button>
         <a href="index.html" class="logo"><span class="dragon-emoji">🐉</span> REDAÇÃO QUEST</a>
+        <span></span>
       </div>
     </div>
   `;
@@ -34,23 +36,28 @@ function montarNav() {
 
 function montarSidebar() {
   const atual = paginaAtual();
-  const main = document.querySelector("main.container");
-  if (!main) return;
 
   const links = PAGINAS.map(p => {
     const ativo = p.href === atual ? " active" : "";
     return `<a href="${p.href}" class="${ativo.trim()}">${p.emoji} ${p.label}</a>`;
   }).join("");
 
-  const shell = document.createElement("div");
-  shell.className = "layout-shell";
+  const backdrop = document.createElement("div");
+  backdrop.className = "sidebar-backdrop";
   const sidebar = document.createElement("nav");
   sidebar.className = "sidebar";
   sidebar.innerHTML = links;
 
-  main.parentNode.insertBefore(shell, main);
-  shell.appendChild(sidebar);
-  shell.appendChild(main);
+  document.body.appendChild(sidebar);
+  document.body.appendChild(backdrop);
+
+  const abrir = () => { sidebar.classList.add("open"); backdrop.classList.add("open"); };
+  const fechar = () => { sidebar.classList.remove("open"); backdrop.classList.remove("open"); };
+
+  const botao = document.getElementById("menu-toggle");
+  if (botao) botao.addEventListener("click", abrir);
+  backdrop.addEventListener("click", fechar);
+  sidebar.querySelectorAll("a").forEach(a => a.addEventListener("click", fechar));
 }
 
 function montarFooter() {
@@ -116,26 +123,25 @@ function rqLimparSessoes() {
   localStorage.removeItem(RQ_STORAGE_KEY);
 }
 
-/* ---------- Ticker de frases inspiradoras (usa FRASES_INSPIRADORAS de data.js) ---------- */
-function montarTicker(containerId) {
-  const alvo = document.getElementById(containerId);
-  if (!alvo || typeof FRASES_INSPIRADORAS === "undefined") return;
-
-  const itens = FRASES_INSPIRADORAS.map(f => `<span>"${f.frase}" <span class="autor">— ${f.autor}</span></span>`).join("");
-  alvo.innerHTML = `
-    <div class="ticker-wrap">
-      <div class="ticker-track">${itens}${itens}</div>
-    </div>
-  `;
+/* ---------- Escolha determinística "do dia", pelo dia do ano ---------- */
+function itemDoDia(lista) {
+  if (!lista || lista.length === 0) return null;
+  const hoje = new Date();
+  const inicioAno = new Date(hoje.getFullYear(), 0, 0);
+  const diaDoAno = Math.floor((hoje - inicioAno) / 86400000);
+  return lista[diaDoAno % lista.length];
 }
 
 /* ---------- Conselho do dia do Mago (usa CONSELHOS_MAGO de data.js) ---------- */
 function conselhoDoDia() {
-  if (typeof CONSELHOS_MAGO === "undefined" || CONSELHOS_MAGO.length === 0) return "";
-  const hoje = new Date();
-  const inicioAno = new Date(hoje.getFullYear(), 0, 0);
-  const diaDoAno = Math.floor((hoje - inicioAno) / 86400000);
-  return CONSELHOS_MAGO[diaDoAno % CONSELHOS_MAGO.length];
+  if (typeof CONSELHOS_MAGO === "undefined") return "";
+  return itemDoDia(CONSELHOS_MAGO) || "";
+}
+
+/* ---------- Frase inspiradora do dia (usa FRASES_INSPIRADORAS de data.js) ---------- */
+function fraseDoDia() {
+  if (typeof FRASES_INSPIRADORAS === "undefined") return null;
+  return itemDoDia(FRASES_INSPIRADORAS);
 }
 
 /* ---------- Tema atual (definido no Oráculo, reaproveitado em outras páginas) ---------- */
