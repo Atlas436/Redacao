@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arena do Tempo — Simulado | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>⏳ Arena do Tempo</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🐉</div>
+    <div class="fala">
+      <span class="nome">DRAGÃO GUARDIÃO</span>
+      <p>Sorteie um desafio, encare o cronômetro de 90 minutos (tempo oficial do ENEM) e treine sob pressão real. Ao final, salve sua sessão no pergaminho.</p>
+    </div>
+  </div>
+
+  <button class="btn-pixel" id="btn-sortear">🎲 Sortear desafio</button>
+  <div id="tema-sorteado" class="tema-card hidden"></div>
+
+  <h2>⏱️ Cronômetro</h2>
+  <div class="form-row" style="max-width:220px;">
+    <label for="minutos-config">Minutos (padrão ENEM: 90)</label>
+    <input type="number" id="minutos-config" value="90" min="1" max="240">
+  </div>
+
+  <div class="timer-display" id="timer-display">90:00</div>
+
+  <div class="center">
+    <button class="btn-pixel" id="btn-iniciar">▶️ Iniciar</button>
+    <button class="btn-pixel secundario" id="btn-pausar">⏸️ Pausar</button>
+    <button class="btn-pixel perigo" id="btn-reiniciar">🔄 Reiniciar</button>
+  </div>
+
+  <h2>📝 Rascunho</h2>
+  <p class="muted">Escreva aqui durante o simulado. Ao terminar, use a <a href="rascunho.html">Caderno de Rascunho</a> para revisar com grifos coloridos, ou vá direto para a Sala de Correção.</p>
+  <textarea id="rascunho-simulado" style="min-height:260px;" placeholder="Escreva sua redação aqui..."></textarea>
+
+  <div class="center mt-2">
+    <button class="btn-pixel" id="btn-salvar-simulado">💾 Salvar sessão no Pergaminho</button>
+  </div>
+  <p class="muted center hidden" id="msg-salvo-simulado">Sessão salva! Veja em <a href="progresso.html">Progresso</a>.</p>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/simulado.js"></script>
+</body>
+</html>

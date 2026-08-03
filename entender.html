@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oráculo de Temas | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>🔮 Oráculo de Temas</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🧙</div>
+    <div class="fala">
+      <span class="nome">MAGO DAS PALAVRAS</span>
+      <p>Digite o título ou o tema da sua redação e o oráculo consulta toda a nossa biblioteca por você: reconhece a área do tema, sugere repertórios e monta perguntas para destravar sua interpretação.</p>
+    </div>
+  </div>
+
+  <div class="dialog-box" style="border-color: var(--amarelo-aviso);">
+    <div class="avatar">🐉</div>
+    <div class="fala">
+      <span class="nome">AVISO DO DRAGÃO</span>
+      <p>Isto <strong>não é uma busca na internet</strong> — é um site estático, sem servidor. O oráculo pesquisa apenas dentro da nossa própria base curada de repertórios. Para a coletânea oficial de cada prova, sempre confira a fonte original.</p>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label for="campo-oraculo">🔎 Título ou tema da redação</label>
+    <input type="text" id="campo-oraculo" placeholder="ex: Desafios para a valorização de comunidades e povos tradicionais no Brasil">
+  </div>
+  <button class="btn-pixel" id="btn-consultar">🔮 Consultar o oráculo</button>
+
+  <div id="resultado-oraculo" class="hidden mt-2">
+
+    <h2>🧭 Áreas identificadas</h2>
+    <div class="flex-wrap" id="areas-identificadas"></div>
+
+    <h2>❓ Perguntas para destravar o tema</h2>
+    <ul id="perguntas-lista"></ul>
+
+    <h2>📚 Repertórios sugeridos (mini coletânea)</h2>
+    <div id="repertorios-sugeridos"></div>
+
+    <div class="center mt-2">
+      <button class="btn-pixel" id="btn-ir-escrever">✍️ Ir escrever com esse tema</button>
+    </div>
+  </div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/entender.js"></script>
+</body>
+</html>

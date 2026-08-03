@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de Temas — ENEM & UNICAMP | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>🗺️ Mapa de Temas</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🧙</div>
+    <div class="fala">
+      <span class="nome">MAGO DAS PALAVRAS</span>
+      <p>Conhecer o "inimigo" é metade da batalha. Veja como ENEM e UNICAMP cobram redação, alguns temas reais de provas passadas e uma lista de temas para treinar.</p>
+    </div>
+  </div>
+
+  <h2>🎯 ENEM — como funciona</h2>
+  <p>Texto <strong>dissertativo-argumentativo</strong> em norma padrão, com proposta de intervenção que respeite os direitos humanos. É avaliado por 5 competências: (1) domínio da norma culta, (2) compreensão do tema e uso de repertório, (3) organização de argumentos, (4) coesão textual, (5) proposta de intervenção detalhada.</p>
+
+  <h3>Alguns temas oficiais de anos anteriores</h3>
+  <div id="lista-enem"></div>
+
+  <h2>🏛️ UNICAMP — como funciona</h2>
+  <p>A prova de redação da UNICAMP costuma ser diferente do ENEM: em vez de sempre pedir dissertação, ela pode propor <strong>gêneros textuais variados</strong> (carta aberta, artigo de opinião, texto dissertativo, entre outros), a partir de uma coletânea de textos-base fornecida na prova. A correção valoriza a adequação ao gênero pedido, a argumentação consistente, a coesão e o domínio da norma culta. Por isso, treine também a leitura crítica de textos de apoio, não só a escrita solta.</p>
+
+  <div class="dialog-box">
+    <div class="avatar">🐉</div>
+    <div class="fala">
+      <span class="nome">DRAGÃO GUARDIÃO</span>
+      <p>Como os temas variam a cada edição e os enunciados exatos mudam de fonte para fonte, sempre confira o edital e as provas oficiais mais recentes no site da banca. Aqui você treina o raciocínio, não decora gabarito.</p>
+    </div>
+  </div>
+
+  <h2>🏋️ Temas de treino (elaborados pelo site)</h2>
+  <p class="muted">Estes não são temas de provas oficiais — são propostas de prática cobrindo assuntos recorrentes em vestibulares.</p>
+  <div id="lista-treino"></div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+function labelTemaChave(chave) {
+  const t = AREAS_TEMA.find(x => x.chave === chave);
+  return t ? t.label : chave;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("lista-enem").innerHTML = TEMAS_ENEM
+    .slice().sort((a,b) => b.ano - a.ano)
+    .map(t => `
+      <div class="tema-card">
+        <span class="ano">ENEM ${t.ano}</span>
+        <h3>${t.tema}</h3>
+        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
+        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo sobre esse tema</a></p>
+      </div>
+    `).join("");
+
+  document.getElementById("lista-treino").innerHTML = TEMAS_TREINO
+    .map(t => `
+      <div class="tema-card">
+        <h3>${t.tema}</h3>
+        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
+        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo</a> · <a href="simulado.html">⏳ Treinar com cronômetro</a></p>
+      </div>
+    `).join("");
+});
+</script>
+</body>
+</html>

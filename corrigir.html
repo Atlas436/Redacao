@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sala de Correção | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>🛡️ Sala de Correção</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🐉</div>
+    <div class="fala">
+      <span class="nome">DRAGÃO GUARDIÃO</span>
+      <p>Cole sua redação abaixo. Eu faço uma análise <strong>automática por pistas objetivas</strong> (tamanho, parágrafos, proposta de intervenção, conectivos, repetições). Argumentação fina e gramática detalhada ainda dependem do seu olhar crítico ou de um professor — eu aponto o caminho, você afia a espada.</p>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label for="tema-redacao">Tema da redação (opcional)</label>
+    <input type="text" id="tema-redacao" placeholder="ex: Saúde mental dos jovens na era das redes sociais">
+  </div>
+
+  <div class="form-row">
+    <label for="texto-redacao">Cole sua redação aqui</label>
+    <textarea id="texto-redacao" style="min-height:280px;" placeholder="Escreva ou cole seu texto..."></textarea>
+  </div>
+
+  <button class="btn-pixel" id="btn-corrigir">🛡️ Analisar redação</button>
+  <button class="btn-pixel secundario" id="btn-limpar">🧹 Limpar</button>
+
+  <div id="resultado-corrigir" class="hidden mt-2">
+    <h2>📋 Relatório do Dragão</h2>
+    <div id="itens-resultado"></div>
+
+    <h2>✅ Checklist de autoavaliação por competência</h2>
+    <p class="muted">Marque após reler seu texto com atenção — isso não é nota oficial, é seu guia de revisão.</p>
+    <div class="checklist" id="checklist-competencias"></div>
+
+    <div class="barra mt-2"><div class="barra-fill xp" id="barra-checklist" style="width:0%;"></div></div>
+    <p class="barra-label" id="label-checklist">0 / 10 pontos de revisão marcados</p>
+
+    <button class="btn-pixel" id="btn-salvar-sessao" style="margin-top:1rem;">💾 Salvar no Pergaminho de Evolução</button>
+    <p class="muted hidden" id="msg-salvo">Sessão salva! Veja em <a href="progresso.html">Progresso</a>.</p>
+  </div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/corrigir.js"></script>
+</body>
+</html>

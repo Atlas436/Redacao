@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficina do Mago — Escrever | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>✍️ Oficina do Mago</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🧙</div>
+    <div class="fala">
+      <span class="nome">MAGO DAS PALAVRAS</span>
+      <p>Toda grande redação segue um feitiço estrutural. Aprenda os passos, empreste palavras do meu grimório de conectivos e conjure sua proposta de intervenção.</p>
+    </div>
+  </div>
+
+  <h2>🏗️ Estrutura dissertativo-argumentativa</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>1. Introdução</h3>
+      <p>Contextualize o tema (dado, citação ou fato histórico) e apresente sua <strong>tese</strong> — os dois argumentos que você vai defender no desenvolvimento.</p>
+    </div>
+    <div class="card">
+      <h3>2. Desenvolvimento I</h3>
+      <p>Um argumento + repertório sociocultural que o sustente + análise (explique a relação entre o repertório e o problema, não apenas cite).</p>
+    </div>
+    <div class="card">
+      <h3>3. Desenvolvimento II</h3>
+      <p>Segundo argumento, também com repertório e análise. Use um ângulo diferente do primeiro parágrafo (causa, consequência, comparação...).</p>
+    </div>
+    <div class="card">
+      <h3>4. Conclusão</h3>
+      <p>Retome a tese e apresente uma <strong>proposta de intervenção completa</strong>: quem faz, o que faz, como faz, para quê, e um detalhamento.</p>
+    </div>
+  </div>
+
+  <h2>📖 Grimório de conectivos</h2>
+  <div id="conectivos"></div>
+
+  <h2>🪄 Gerador de proposta de intervenção</h2>
+  <p>Preencha os campos abaixo e o mago conjura um parágrafo de conclusão completo para você adaptar.</p>
+
+  <div class="form-row">
+    <label for="pi-problema">Problema abordado</label>
+    <input type="text" id="pi-problema" placeholder="ex: a evasão escolar no ensino médio">
+  </div>
+  <div class="form-row">
+    <label for="pi-agente">Agente (quem faz)</label>
+    <input type="text" id="pi-agente" placeholder="ex: o Ministério da Educação, em parceria com as escolas,">
+  </div>
+  <div class="form-row">
+    <label for="pi-acao">Ação (o que faz)</label>
+    <input type="text" id="pi-acao" placeholder="ex: deve criar programas de apoio psicopedagógico">
+  </div>
+  <div class="form-row">
+    <label for="pi-meio">Meio / modo (como faz)</label>
+    <input type="text" id="pi-meio" placeholder="ex: por meio de núcleos de acolhimento dentro das escolas">
+  </div>
+  <div class="form-row">
+    <label for="pi-finalidade">Finalidade (para quê)</label>
+    <input type="text" id="pi-finalidade" placeholder="ex: a fim de reduzir os índices de abandono escolar">
+  </div>
+  <div class="form-row">
+    <label for="pi-detalhamento">Detalhamento</label>
+    <input type="text" id="pi-detalhamento" placeholder="ex: com equipes de psicólogos e assistentes sociais contratados via verba federal">
+  </div>
+
+  <button class="btn-pixel" id="btn-conjurar">🪄 Conjurar proposta</button>
+
+  <div id="resultado-pi" class="hidden">
+    <h3>Resultado</h3>
+    <div class="resultado-item ok">
+      <span class="titulo">PARÁGRAFO GERADO</span>
+      <p id="texto-pi"></p>
+    </div>
+  </div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/escrever.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caderno de Rascunho | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>📝 Caderno de Rascunho</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🧙</div>
+    <div class="fala">
+      <span class="nome">MAGO DAS PALAVRAS</span>
+      <p>Escreva ou cole seu rascunho aqui. Selecione um trecho e clique numa cor para grifar: o que manter, o que revisar ou o que precisa mudar. Tudo fica salvo neste navegador automaticamente.</p>
+    </div>
+  </div>
+
+  <div class="toolbar-grifo">
+    <button class="btn-grifo manter" data-cor="manter">🟢 Manter</button>
+    <button class="btn-grifo revisar" data-cor="revisar">🟡 Revisar</button>
+    <button class="btn-grifo mudar" data-cor="mudar">🔴 Mudar</button>
+    <button class="btn-pixel secundario" id="btn-apagar-grifos">🧹 Apagar grifos</button>
+    <button class="btn-pixel perigo" id="btn-limpar-tudo">🗑️ Limpar tudo</button>
+  </div>
+  <div class="legenda-grifo">
+    <span><span class="amostra" style="background:var(--verde-xp);"></span> manter como está</span>
+    <span><span class="amostra" style="background:var(--amarelo-aviso);"></span> revisar com calma</span>
+    <span><span class="amostra" style="background:var(--vermelho-alerta);"></span> precisa mudar</span>
+  </div>
+
+  <div id="editor-rascunho" class="editor-rascunho" contenteditable="true" spellcheck="false"
+       data-placeholder="Escreva ou cole seu rascunho aqui..."></div>
+  <p class="muted" id="status-salvo" style="margin-top:0.4rem;">Salvo automaticamente neste navegador.</p>
+
+  <h2>💡 Notas soltas</h2>
+  <p class="muted">Sem ideia? Jogue aqui qualquer pensamento solto, dado ou repertório que lembrar no meio do caminho.</p>
+  <div class="form-row" style="display:flex; gap:0.5rem; align-items:flex-start;">
+    <input type="text" id="campo-nota" placeholder="ex: lembrar de citar a LGPD no 2º parágrafo">
+    <button class="btn-pixel" id="btn-add-nota" style="white-space:nowrap;">➕ Adicionar</button>
+  </div>
+  <div class="notas-grid" id="lista-notas"></div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/rascunho.js"></script>
+</body>
+</html>

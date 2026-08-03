@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pergaminho de Evolução | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>📈 Pergaminho de Evolução</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🧙</div>
+    <div class="fala">
+      <span class="nome">MAGO DAS PALAVRAS</span>
+      <p>Cada redação corrigida ou simulado concluído fica registrado aqui neste dispositivo (armazenamento local do navegador). Acompanhe sua evolução, nível e conquistas!</p>
+    </div>
+  </div>
+
+  <div id="resumo-xp">
+    <h2>⭐ Nível <span id="nivel-atual">1</span></h2>
+    <div class="barra"><div class="barra-fill xp" id="barra-xp" style="width:0%;"></div></div>
+    <p class="barra-label" id="label-xp"></p>
+  </div>
+
+  <h2>🏅 Conquistas</h2>
+  <div class="flex-wrap" id="lista-badges"></div>
+
+  <h2>📊 Palavras por sessão</h2>
+  <canvas id="grafico-canvas" width="900" height="220" style="width:100%;max-width:900px;background:#0a0612;border:3px solid var(--roxo-med);"></canvas>
+
+  <h2>🗂️ Histórico de sessões</h2>
+  <div id="tabela-historico"></div>
+
+  <button class="btn-pixel perigo mt-2" id="btn-limpar-historico">🗑️ Apagar histórico</button>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/progresso.js"></script>
+</body>
+</html>

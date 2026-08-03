@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblioteca do Dragão — Repertório | Redação Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app-nav"></div>
+
+<main class="container">
+  <h1>📚 Biblioteca do Dragão</h1>
+
+  <div class="dialog-box">
+    <div class="avatar">🐉</div>
+    <div class="fala">
+      <span class="nome">DRAGÃO GUARDIÃO</span>
+      <p>Aqui você encontra sociólogos, filósofos, dados, leis, história e obras de arte — tudo pronto para armar seu argumento. Busque por nome ou filtre por área e por tema.</p>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label for="busca">🔍 Buscar por nome ou conceito</label>
+    <input type="search" id="busca" placeholder="ex: Bauman, vigilância, capital cultural...">
+  </div>
+
+  <h3>Filtrar por área</h3>
+  <div class="flex-wrap" id="filtro-area"></div>
+
+  <h3>Filtrar por tema</h3>
+  <div class="flex-wrap" id="filtro-tema"></div>
+
+  <p class="muted" id="contador" style="margin-top:1.5rem;"></p>
+  <div id="lista-repertorio"></div>
+</main>
+
+<div id="app-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/repertorio.js"></script>
+</body>
+</html>
