@@ -92,16 +92,18 @@ function montarEstrelas() {
   const campo = document.createElement("div");
   campo.className = "starfield";
   const cores = ["#ffffff", "#d6dae2", "#d8c7f5"];
-  const total = 70;
+  const total = 90;
   for (let i = 0; i < total; i++) {
     const estrela = document.createElement("span");
     estrela.className = "star";
-    const tamanho = Math.random() < 0.75 ? 2 : 3;
+    const tamanho = Math.random() < 0.6 ? 2 : (Math.random() < 0.8 ? 3 : 4);
+    const cor = cores[Math.floor(Math.random() * cores.length)];
     estrela.style.left = (Math.random() * 100).toFixed(2) + "vw";
     estrela.style.top = (Math.random() * 100).toFixed(2) + "vh";
     estrela.style.width = tamanho + "px";
     estrela.style.height = tamanho + "px";
-    estrela.style.background = cores[Math.floor(Math.random() * cores.length)];
+    estrela.style.background = cor;
+    estrela.style.color = cor;
     estrela.style.animationDelay = (Math.random() * 4).toFixed(2) + "s";
     estrela.style.animationDuration = (2 + Math.random() * 3).toFixed(2) + "s";
     campo.appendChild(estrela);
