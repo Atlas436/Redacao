@@ -18,9 +18,58 @@ function salvarRascunho() {
   salvarTimeout = setTimeout(() => { status.textContent = "Salvo automaticamente neste navegador."; }, 1500);
 }
 
+// Sanitiza o HTML salvo antes de reinserir no editor: só permite <mark> com
+// as classes de grifo e <br>, removendo qualquer outra tag/atributo (evita
+// que HTML colado com script/handlers maliciosos seja reexecutado ao recarregar)
+function sanitizarRascunhoHTML(html) {
+  const TAGS_PERMITIDAS = new Set(["MARK", "BR"]);
+  const CLASSES_PERMITIDAS = new Set(["highlight-manter", "highlight-revisar", "highlight-mudar"]);
+
+  const template = document.createElement("template");
+  template.innerHTML = html;
+
+  function limpar(no) {
+    [...no.childNodes].forEach(filho => {
+      if (filho.nodeType === Node.ELEMENT_NODE) {
+        if (!TAGS_PERMITIDAS.has(filho.tagName)) {
+          filho.replaceWith(document.createTextNode(filho.textContent));
+          return;
+        }
+        [...filho.attributes].forEach(attr => {
+          if (attr.name !== "class") filho.removeAttribute(attr.name);
+        });
+        if (filho.tagName === "MARK") {
+          const classes = (filho.getAttribute("class") || "").split(/\s+/).filter(c => CLASSES_PERMITIDAS.has(c));
+          if (classes.length) filho.setAttribute("class", classes.join(" "));
+          else filho.removeAttribute("class");
+        }
+        limpar(filho);
+      } else if (filho.nodeType !== Node.TEXT_NODE) {
+        filho.remove();
+      }
+    });
+  }
+
+  limpar(template.content);
+  return template.innerHTML;
+}
+
 function carregarRascunho() {
   const salvo = localStorage.getItem(RQ_RASCUNHO_KEY);
-  if (salvo) getEditor().innerHTML = salvo;
+  if (salvo) getEditor().innerHTML = sanitizarRascunhoHTML(salvo);
+}
+
+// Força colagem como texto puro, sem HTML rico (evita injeção via clipboard)
+function tratarColagem(e) {
+  e.preventDefault();
+  const texto = (e.clipboardData || window.clipboardData).getData("text/plain");
+  const sel = window.getSelection();
+  if (!sel.rangeCount) return;
+  const range = sel.getRangeAt(0);
+  range.deleteContents();
+  range.insertNode(document.createTextNode(texto));
+  range.collapse(false);
+  salvarRascunho();
 }
 
 function aplicarGrifo(cor) {
@@ -59,6 +108,19 @@ function limparTudo() {
   salvarRascunho();
 }
 
+function baixarComoTxt() {
+  const texto = getEditor().innerText || getEditor().textContent || "";
+  const blob = new Blob([texto], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "redacao-quest-rascunho.txt";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 /* ---------- Notas soltas ---------- */
 function lerNotas() {
   try { return JSON.parse(localStorage.getItem(RQ_NOTAS_KEY)) || []; }
@@ -79,7 +141,7 @@ function renderNotas() {
   alvo.innerHTML = notas.map((n, i) => `
     <div class="nota-card">
       <button class="remover-nota" data-idx="${i}" title="remover">✕</button>
-      <p class="nota-texto">${n}</p>
+      <p class="nota-texto">${escapeHTML(n)}</p>
     </div>
   `).join("");
 
@@ -114,7 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.getElementById("btn-apagar-grifos").addEventListener("click", apagarGrifos);
   document.getElementById("btn-limpar-tudo").addEventListener("click", limparTudo);
+  document.getElementById("btn-baixar-txt").addEventListener("click", baixarComoTxt);
   getEditor().addEventListener("input", salvarRascunho);
+  getEditor().addEventListener("paste", tratarColagem);
 
   document.getElementById("btn-add-nota").addEventListener("click", adicionarNota);
   document.getElementById("campo-nota").addEventListener("keydown", e => {

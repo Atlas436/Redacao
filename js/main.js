@@ -2,6 +2,16 @@
    Nav, rodapé e utilidades compartilhadas entre páginas
 =========================================================== */
 
+// Carrega a fonte do Google Fonts via JS (não bloqueia o parsing/scripts da
+// página caso o CDN esteja lento ou inacessível — só troca a fonte quando
+// terminar de carregar; até lá, usa a fonte monoespaçada padrão do sistema)
+(function carregarFontesGoogle() {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap";
+  document.head.appendChild(link);
+})();
+
 const PAGINAS = [
   { href: "index.html", label: "Início", emoji: "🏰" },
   { href: "entender.html", label: "Oráculo", emoji: "🔮" },
@@ -142,6 +152,13 @@ function conselhoDoDia() {
 function fraseDoDia() {
   if (typeof FRASES_INSPIRADORAS === "undefined") return null;
   return itemDoDia(FRASES_INSPIRADORAS);
+}
+
+/* ---------- Escapar texto antes de injetar em innerHTML (evita XSS) ---------- */
+function escapeHTML(str) {
+  const div = document.createElement("div");
+  div.textContent = String(str);
+  return div.innerHTML;
 }
 
 /* ---------- Tema atual (definido no Oráculo, reaproveitado em outras páginas) ---------- */

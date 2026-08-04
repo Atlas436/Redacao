@@ -1110,6 +1110,152 @@ const REPERTORIO = [
     ideia: "Principal agência de fomento à pesquisa científica no Brasil; cortes em seu orçamento afetam diretamente bolsas de estudo, laboratórios e a capacidade do país de produzir ciência própria.",
     uso: "Bom repertório para temas sobre financiamento à ciência e educação superior no Brasil.",
     temas: ["educacao"]
+  },
+
+  // ---------------- QUINTA LEVA ----------------
+  {
+    nome: "Loïc Wacquant",
+    area: "sociologia",
+    obra: "Punir os Pobres (2001)",
+    conceito: "Criminalização da pobreza",
+    ideia: "Sociólogo francês que analisa como o Estado, ao recuar nas políticas sociais, passa a gerir a pobreza urbana principalmente pelo sistema penal, encarcerando em massa populações pobres e marginalizadas.",
+    uso: "Repertório forte para temas sobre encarceramento em massa, violência e desigualdade social.",
+    temas: ["violencia", "desigualdade"]
+  },
+  {
+    nome: "Nancy Fraser",
+    area: "sociologia",
+    obra: "Da Redistribuição ao Reconhecimento? (1995)",
+    conceito: "Justiça social como redistribuição e reconhecimento",
+    ideia: "Defende que a justiça social exige tanto redistribuição econômica (combater a pobreza) quanto reconhecimento cultural (combater o preconceito), sem que uma pauta substitua a outra.",
+    uso: "Bom para conectar argumentos sobre desigualdade econômica com pautas de identidade e reconhecimento.",
+    temas: ["desigualdade", "cultura", "democracia"]
+  },
+  {
+    nome: "Raewyn Connell",
+    area: "sociologia",
+    obra: "Masculinidades (1995)",
+    conceito: "Masculinidade hegemônica",
+    ideia: "Socióloga australiana que analisa como certos padrões de masculinidade se tornam dominantes e são usados para justificar hierarquias de gênero, pressionando homens e subordinando mulheres.",
+    uso: "Bom para temas sobre gênero, violência doméstica e padrões de comportamento social.",
+    temas: ["cultura", "desigualdade"]
+  },
+  {
+    nome: "Martha Nussbaum",
+    area: "filosofia",
+    obra: "Sem Fins Lucrativos: Por Que a Democracia Precisa das Humanidades (2010)",
+    conceito: "Abordagem das capacidades e educação para a democracia",
+    ideia: "Defende que o desenvolvimento humano deve ser medido pela expansão de capacidades reais das pessoas, e que a educação em humanidades é essencial para formar cidadãos críticos capazes de sustentar a democracia.",
+    uso: "Bom para temas sobre educação, democracia e desenvolvimento humano.",
+    temas: ["educacao", "democracia"]
+  },
+  {
+    nome: "Hans Jonas",
+    area: "filosofia",
+    obra: "O Princípio Responsabilidade (1979)",
+    conceito: "Ética para a era tecnológica",
+    ideia: "Propõe que, diante do poder destrutivo da tecnologia moderna, a humanidade precisa agir com responsabilidade também em relação às gerações futuras, e não apenas em relação ao presente.",
+    uso: "Excelente para temas sobre meio ambiente, mudanças climáticas e ética tecnológica.",
+    temas: ["meio-ambiente", "tecnologia"]
+  },
+  {
+    nome: "Fiocruz",
+    area: "dados",
+    obra: "Fundação Oswaldo Cruz",
+    conceito: "Pesquisa em saúde pública no Brasil",
+    ideia: "Principal instituição de pesquisa e ciência em saúde pública do Brasil, produzindo estudos sobre epidemias, saúde mental e desigualdades no acesso à saúde.",
+    uso: "Fonte de autoridade para temas sobre saúde pública e saúde mental.",
+    temas: ["saude-mental"]
+  },
+  {
+    nome: "Instituto Alana",
+    area: "dados",
+    obra: "Organização da sociedade civil pelos direitos da infância",
+    conceito: "Proteção da infância frente ao consumo e às telas",
+    ideia: "ONG brasileira que estuda e advoga pelos direitos de crianças e adolescentes, com foco especial nos impactos da publicidade infantil e do uso excessivo de telas no desenvolvimento infantil.",
+    uso: "Bom repertório para temas sobre infância, tecnologia e consumo.",
+    temas: ["educacao", "saude-mental"]
+  },
+  {
+    nome: "OCDE",
+    area: "dados",
+    obra: "Relatórios sobre desigualdade entre países (ex.: Better Life Index)",
+    conceito: "Comparação internacional de desigualdade e bem-estar",
+    ideia: "Organização que reúne países desenvolvidos e produz indicadores comparativos de renda, educação e qualidade de vida, frequentemente usados para situar o Brasil no cenário internacional.",
+    uso: "Bom para contextualizar o Brasil internacionalmente em temas de desigualdade.",
+    temas: ["desigualdade"]
+  },
+  {
+    nome: "Marco Legal da Primeira Infância",
+    area: "lei",
+    obra: "Lei nº 13.257/2016",
+    conceito: "Prioridade às políticas para a primeira infância",
+    ideia: "Estabelece princípios e diretrizes para políticas públicas voltadas à primeira infância (0 a 6 anos), reconhecendo esse período como decisivo para o desenvolvimento humano.",
+    uso: "Bom para embasar propostas de intervenção sobre educação infantil e desigualdade.",
+    temas: ["educacao", "desigualdade"]
+  },
+  {
+    nome: "Estatuto da Juventude",
+    area: "lei",
+    obra: "Lei nº 12.852/2013",
+    conceito: "Direitos da juventude brasileira",
+    ideia: "Garante aos jovens brasileiros (15 a 29 anos) direitos como educação, profissionalização, cultura e participação política, reconhecendo a juventude como fase com demandas próprias.",
+    uso: "Repertório direto para temas sobre juventude, educação e participação política jovem.",
+    temas: ["educacao", "democracia"]
+  },
+  {
+    nome: "Lei do Superendividamento",
+    area: "lei",
+    obra: "Lei nº 14.181/2021",
+    conceito: "Proteção do consumidor contra o endividamento excessivo",
+    ideia: "Atualiza o Código de Defesa do Consumidor para prevenir e tratar o superendividamento, obrigando instituições financeiras a agir com mais responsabilidade na concessão de crédito.",
+    uso: "Bom para temas sobre consumismo, crédito fácil e vulnerabilidade financeira das famílias.",
+    temas: ["desigualdade", "trabalho"]
+  },
+  {
+    nome: "Queda do Muro de Berlim",
+    area: "historia",
+    obra: "Alemanha, 1989",
+    conceito: "Fim da divisão entre blocos políticos",
+    ideia: "Marco histórico que simboliza o fim da Guerra Fria e da divisão do mundo em blocos político-econômicos rígidos, associado à expansão de ideais democráticos no fim do século XX.",
+    uso: "Bom repertório histórico para temas sobre democracia e integração internacional.",
+    temas: ["democracia"]
+  },
+  {
+    nome: "Descolonização da África",
+    area: "historia",
+    obra: "Processo histórico concentrado sobretudo entre 1950-1970",
+    conceito: "Fim dos impérios coloniais europeus na África",
+    ideia: "Processo em que países africanos conquistaram independência política das potências coloniais europeias, embora as desigualdades econômicas e as fronteiras artificiais herdadas do colonialismo persistam até hoje.",
+    uso: "Bom repertório histórico para temas sobre desigualdade global e herança colonial.",
+    temas: ["desigualdade", "cultura"]
+  },
+  {
+    nome: "Cidade de Deus (filme)",
+    area: "arte",
+    obra: "Filme, 2002",
+    conceito: "Violência e exclusão nas favelas cariocas",
+    ideia: "Retrata a trajetória de jovens em uma favela do Rio de Janeiro dominada pelo tráfico de drogas, expondo como a ausência do Estado empurra crianças e adolescentes para a violência.",
+    uso: "Repertório muito conhecido para temas sobre violência urbana, juventude e desigualdade.",
+    temas: ["violencia", "desigualdade"]
+  },
+  {
+    nome: "\"Construção\", de Chico Buarque",
+    area: "arte",
+    obra: "Canção, 1971",
+    conceito: "Desumanização e morte do trabalhador",
+    ideia: "Canção que narra, em estrutura poética repetitiva, o dia rotineiro e a morte de um operário da construção civil, denunciando a invisibilidade e o descarte do trabalhador comum.",
+    uso: "Repertório musical clássico para temas sobre trabalho, acidentes laborais e desigualdade.",
+    temas: ["trabalho", "violencia"]
+  },
+  {
+    nome: "Torto Arado, de Itamar Vieira Junior",
+    area: "arte",
+    obra: "Romance, 2019",
+    conceito: "Trabalho rural, terra e racismo no interior do Brasil",
+    ideia: "Romance premiado que narra a vida de duas irmãs em uma comunidade rural da Bahia, expondo as marcas do racismo, da luta pela terra e da exploração do trabalho no campo brasileiro.",
+    uso: "Repertório literário contemporâneo forte para temas sobre trabalho rural, racismo e desigualdade.",
+    temas: ["trabalho", "desigualdade", "cultura"]
   }
 ];
 

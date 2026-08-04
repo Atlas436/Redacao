@@ -3,7 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%90%89%3C/text%3E%3C/svg%3E">
 <title>Mapa de Temas — ENEM, UNICAMP & VUNESP | Redação Quest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -54,60 +58,6 @@
 <div id="app-footer"></div>
 <script src="js/data.js"></script>
 <script src="js/main.js"></script>
-<script>
-function labelTemaChave(chave) {
-  const t = AREAS_TEMA.find(x => x.chave === chave);
-  return t ? t.label : chave;
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("lista-enem").innerHTML = TEMAS_ENEM
-    .slice().sort((a,b) => b.ano - a.ano)
-    .map(t => `
-      <div class="tema-card">
-        <span class="ano">ENEM ${t.ano}</span>
-        <h3>${t.tema}</h3>
-        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
-        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo sobre esse tema</a></p>
-      </div>
-    `).join("");
-
-  document.getElementById("lista-unicamp").innerHTML = TEMAS_UNICAMP
-    .slice().sort((a, b) => b.ano - a.ano)
-    .map(ano => `
-      <div class="tema-card">
-        <span class="ano">UNICAMP ${ano.ano}</span>
-        ${ano.propostas.map(p => `
-          <div style="margin-top:0.6rem; padding-top:0.6rem; border-top:2px dashed var(--roxo-med);">
-            <span class="tag ativo">${p.genero}</span>
-            <h3 style="margin:0.4rem 0;">${p.tema}</h3>
-            <div class="flex-wrap">${p.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
-            <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(p.tema)}">🔮 Consultar o Oráculo sobre essa proposta</a></p>
-          </div>
-        `).join("")}
-      </div>
-    `).join("");
-
-  document.getElementById("lista-vunesp").innerHTML = TEMAS_VUNESP
-    .slice().sort((a, b) => b.ano - a.ano)
-    .map(t => `
-      <div class="tema-card">
-        <span class="ano">VUNESP ${t.ano}</span>
-        <h3>${t.tema}</h3>
-        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
-        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo sobre esse tema</a></p>
-      </div>
-    `).join("");
-
-  document.getElementById("lista-treino").innerHTML = TEMAS_TREINO
-    .map(t => `
-      <div class="tema-card">
-        <h3>${t.tema}</h3>
-        <div class="flex-wrap">${t.areas.map(a => `<span class="tag">${labelTemaChave(a)}</span>`).join("")}</div>
-        <p style="margin-top:0.5rem;"><a href="entender.html?tema=${encodeURIComponent(t.tema)}">🔮 Consultar o Oráculo</a> · <a href="simulado.html">⏳ Treinar com cronômetro</a></p>
-      </div>
-    `).join("");
-});
-</script>
+<script src="js/temas.js"></script>
 </body>
 </html>

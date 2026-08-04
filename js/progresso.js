@@ -58,7 +58,7 @@ function renderTabela(sessoes) {
     const extra = s.tipo === "simulado"
       ? `${s.tempoUsadoMin || 0} min`
       : `${s.checklist || 0}/${s.checklistTotal || 10} checklist`;
-    return `<tr><td>${data}</td><td>${tipoLabel}</td><td>${s.tema}</td><td>${s.palavras || 0}</td><td>${extra}</td></tr>`;
+    return `<tr><td>${data}</td><td>${tipoLabel}</td><td>${escapeHTML(s.tema)}</td><td>${s.palavras || 0}</td><td>${extra}</td></tr>`;
   }).join("");
 
   alvo.innerHTML = `

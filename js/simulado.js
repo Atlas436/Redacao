@@ -18,7 +18,7 @@ function sortearTema() {
   temaAtual = lista[Math.floor(Math.random() * lista.length)];
   const alvo = document.getElementById("tema-sorteado");
   alvo.classList.remove("hidden");
-  alvo.innerHTML = `<span class="ano">DESAFIO SORTEADO</span><h3>${temaAtual}</h3>`;
+  alvo.innerHTML = `<span class="ano">DESAFIO SORTEADO</span><h3>${escapeHTML(temaAtual)}</h3>`;
 }
 
 function formatarTempo(seg) {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     temaAtual = temaSalvo;
     const alvo = document.getElementById("tema-sorteado");
     alvo.classList.remove("hidden");
-    alvo.innerHTML = `<span class="ano">TEMA DO ORÁCULO</span><h3>${temaAtual}</h3>`;
+    alvo.innerHTML = `<span class="ano">TEMA DO ORÁCULO</span><h3>${escapeHTML(temaAtual)}</h3>`;
   }
 
   document.getElementById("btn-sortear").addEventListener("click", sortearTema);
