@@ -12,6 +12,14 @@
   document.head.appendChild(link);
 })();
 
+// PWA: registra o service worker (site fica instalável e funciona offline
+// depois da primeira visita). Falha em silêncio se o navegador não suportar.
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {});
+  });
+}
+
 const PAGINAS = [
   { href: "index.html", label: "Início", emoji: "🏰" },
   { href: "entender.html", label: "Oráculo", emoji: "🔮" },
@@ -37,7 +45,7 @@ function montarNav() {
     <div class="topbar">
       <div class="topbar-inner">
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰ Menu</button>
-        <a href="index.html" class="logo"><span class="dragon-emoji">🐉</span> REDAÇÃO QUEST</a>
+        <a href="index.html" class="logo"><img src="assets/sprites/dragon.svg" alt="" class="dragon-logo-img"> REDAÇÃO QUEST</a>
         <span></span>
       </div>
     </div>
@@ -80,6 +88,27 @@ function montarFooter() {
   `;
 }
 
+function montarEstrelas() {
+  const campo = document.createElement("div");
+  campo.className = "starfield";
+  const cores = ["#ffffff", "#d6dae2", "#d8c7f5"];
+  const total = 70;
+  for (let i = 0; i < total; i++) {
+    const estrela = document.createElement("span");
+    estrela.className = "star";
+    const tamanho = Math.random() < 0.75 ? 2 : 3;
+    estrela.style.left = (Math.random() * 100).toFixed(2) + "vw";
+    estrela.style.top = (Math.random() * 100).toFixed(2) + "vh";
+    estrela.style.width = tamanho + "px";
+    estrela.style.height = tamanho + "px";
+    estrela.style.background = cores[Math.floor(Math.random() * cores.length)];
+    estrela.style.animationDelay = (Math.random() * 4).toFixed(2) + "s";
+    estrela.style.animationDuration = (2 + Math.random() * 3).toFixed(2) + "s";
+    campo.appendChild(estrela);
+  }
+  document.body.appendChild(campo);
+}
+
 function montarCRT() {
   const overlay = document.createElement("div");
   overlay.className = "crt-overlay";
@@ -91,7 +120,7 @@ function montarLoadingSplash() {
   splash.id = "loading-splash";
   splash.innerHTML = `
     <div class="jump-scene">
-      <div class="jump-dragon">🐉</div>
+      <div class="jump-dragon"><img src="assets/sprites/dragon.svg" alt=""></div>
       <div class="jump-fence">🚧</div>
       <div class="jump-ground"></div>
     </div>
@@ -109,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
   montarNav();
   montarSidebar();
   montarFooter();
+  montarEstrelas();
   montarCRT();
 });
 

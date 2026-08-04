@@ -3,8 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%90%89%3C/text%3E%3C/svg%3E">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; manifest-src 'self'; worker-src 'self';">
+<link rel="icon" type="image/svg+xml" href="assets/sprites/dragon.svg">
+<link rel="apple-touch-icon" href="assets/sprites/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#7c3aed">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mapa de Temas — ENEM, UNICAMP & VUNESP | Redação Quest">
+<meta property="og:description" content="Temas reais de provas anteriores e como cada banca cobra a redação.">
+<meta property="og:image" content="https://atlas436.github.io/Redacao/assets/sprites/og-image.png">
+<meta property="og:url" content="https://atlas436.github.io/Redacao/temas.html">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mapa de Temas — ENEM, UNICAMP & VUNESP | Redação Quest">
+<meta name="twitter:description" content="Temas reais de provas anteriores e como cada banca cobra a redação.">
+<meta name="twitter:image" content="https://atlas436.github.io/Redacao/assets/sprites/og-image.png">
+<meta name="description" content="Temas reais de provas anteriores e como cada banca cobra a redação.">
 <title>Mapa de Temas — ENEM, UNICAMP & VUNESP | Redação Quest</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +31,7 @@
   <h1>🗺️ Mapa de Temas</h1>
 
   <div class="dialog-box">
-    <div class="avatar">🧙</div>
+    <div class="avatar"><img src="assets/sprites/mago.svg" alt="Mago das Palavras" class="avatar-img"></div>
     <div class="fala">
       <span class="nome">MAGO DAS PALAVRAS</span>
       <p>Conhecer o "inimigo" é metade da batalha. Veja como ENEM, UNICAMP e VUNESP/Provão Paulista cobram redação, temas reais de provas passadas e uma lista de temas para treinar.</p>
@@ -43,7 +57,7 @@
   <div id="lista-vunesp"></div>
 
   <div class="dialog-box">
-    <div class="avatar">🐉</div>
+    <div class="avatar"><img src="assets/sprites/dragon.svg" alt="Dragão Guardião" class="avatar-img"></div>
     <div class="fala">
       <span class="nome">DRAGÃO GUARDIÃO</span>
       <p>Como os temas variam a cada edição e os enunciados exatos mudam de fonte para fonte, sempre confira o edital e as provas oficiais mais recentes no site da banca. Aqui você treina o raciocínio, não decora gabarito.</p>

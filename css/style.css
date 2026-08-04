@@ -64,6 +64,24 @@ p { font-size: 1.25rem; }
   padding: 1.2rem 1.5rem 4rem;
 }
 
+/* ---------- Campo de estrelas ---------- */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  border-radius: 50%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
 /* ---------- Scanline overlay ---------- */
 .crt-overlay {
   pointer-events: none;
@@ -89,7 +107,7 @@ p { font-size: 1.25rem; }
 
 /* ---------- Top bar (só título) ---------- */
 .topbar {
-  background: var(--preto);
+  background: linear-gradient(90deg, var(--preto) 0%, var(--roxo-escuro) 50%, var(--roxo) 100%);
   border-bottom: 4px solid var(--roxo-vivo);
   position: sticky;
   top: 0;
@@ -305,7 +323,16 @@ p { font-size: 1.25rem; }
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
+.dialog-box .avatar-img {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  object-fit: cover;
+}
+.dragon-logo-img { width: 1.6rem; height: 1.6rem; image-rendering: pixelated; vertical-align: middle; }
+.jump-dragon img { width: 2.6rem; height: 2.6rem; image-rendering: pixelated; }
 .dialog-box .fala .nome {
   font-family: var(--fonte-pixel);
   font-size: 0.7rem;

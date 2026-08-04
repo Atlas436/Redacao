@@ -1,0 +1,17 @@
+{
+  "name": "Redação Quest",
+  "short_name": "Redação Quest",
+  "description": "RPG retrô de apoio à redação para ENEM, UNICAMP e VUNESP/Provão Paulista",
+  "start_url": "index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#170b2e",
+  "theme_color": "#7c3aed",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "assets/sprites/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/sprites/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/sprites/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

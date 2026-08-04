@@ -1256,6 +1256,143 @@ const REPERTORIO = [
     ideia: "Romance premiado que narra a vida de duas irmãs em uma comunidade rural da Bahia, expondo as marcas do racismo, da luta pela terra e da exploração do trabalho no campo brasileiro.",
     uso: "Repertório literário contemporâneo forte para temas sobre trabalho rural, racismo e desigualdade.",
     temas: ["trabalho", "desigualdade", "cultura"]
+  },
+
+  // ---------------- SEXTA LEVA ----------------
+  {
+    nome: "Angela Davis",
+    area: "sociologia",
+    obra: "Mulheres, Raça e Classe (1981)",
+    conceito: "Interseccionalidade entre raça, gênero e classe",
+    ideia: "Ativista e filósofa que analisa como racismo, machismo e desigualdade de classe se entrelaçam historicamente, sobretudo na experiência de mulheres negras, e critica o sistema penal como forma de controle social.",
+    uso: "Repertório forte para temas sobre desigualdade racial, de gênero e sistema prisional.",
+    temas: ["desigualdade", "violencia", "cultura"]
+  },
+  {
+    nome: "Anthony Atkinson",
+    area: "sociologia",
+    obra: "Desigualdade: O Que Pode Ser Feito? (2015)",
+    conceito: "Políticas concretas contra a desigualdade de renda",
+    ideia: "Economista que propõe medidas concretas de política pública (tributação progressiva, salário mínimo, herança social) para reduzir a desigualdade de renda nos países.",
+    uso: "Bom para embasar propostas de intervenção sobre desigualdade econômica.",
+    temas: ["desigualdade"]
+  },
+  {
+    nome: "Gilles Lipovetsky",
+    area: "filosofia",
+    obra: "A Era do Vazio (1983)",
+    conceito: "Hiperconsumo e individualismo contemporâneo",
+    ideia: "Filósofo francês que descreve a sociedade contemporânea como marcada pelo hiperindividualismo, o consumo como forma de identidade e o esvaziamento de grandes causas coletivas.",
+    uso: "Bom para temas sobre consumismo, redes sociais e individualismo.",
+    temas: ["cultura", "tecnologia"]
+  },
+  {
+    nome: "Slavoj Žižek",
+    area: "filosofia",
+    obra: "Ensaios diversos sobre ideologia contemporânea",
+    conceito: "Crítica da ideologia nas sociedades de consumo",
+    ideia: "Filósofo esloveno que analisa como ideologias contemporâneas se disfarçam de 'senso comum' ou de escolhas neutras de consumo, naturalizando desigualdades e contradições do capitalismo.",
+    uso: "Bom para temas que exigem uma leitura crítica de discursos aparentemente neutros.",
+    temas: ["cultura", "desigualdade"]
+  },
+  {
+    nome: "Anatel",
+    area: "dados",
+    obra: "Agência Nacional de Telecomunicações",
+    conceito: "Acesso a telefonia e internet no Brasil",
+    ideia: "Órgão regulador que publica dados sobre cobertura de internet móvel e fixa no Brasil, evidenciando desigualdades de acesso entre regiões urbanas e rurais.",
+    uso: "Bom para embasar temas sobre exclusão digital e infraestrutura de telecomunicações.",
+    temas: ["tecnologia", "desigualdade"]
+  },
+  {
+    nome: "DATASUS / Ministério da Saúde",
+    area: "dados",
+    obra: "Sistema de dados do SUS",
+    conceito: "Dados oficiais de saúde pública no Brasil",
+    ideia: "Sistema que reúne dados oficiais sobre saúde pública no Brasil, incluindo indicadores de saúde mental, mortalidade e acesso a tratamentos pelo SUS.",
+    uso: "Fonte de autoridade para qualquer tema sobre saúde pública ou saúde mental no Brasil.",
+    temas: ["saude-mental"]
+  },
+  {
+    nome: "Sebrae",
+    area: "dados",
+    obra: "Serviço Brasileiro de Apoio às Micro e Pequenas Empresas",
+    conceito: "Empreendedorismo e informalidade no Brasil",
+    ideia: "Órgão que apoia pequenos negócios e publica dados sobre empreendedorismo, informalidade no trabalho e sobrevivência de pequenas empresas no Brasil.",
+    uso: "Bom para temas sobre trabalho informal, empreendedorismo e mercado de trabalho.",
+    temas: ["trabalho"]
+  },
+  {
+    nome: "Lei da Ficha Limpa",
+    area: "lei",
+    obra: "Lei Complementar nº 135/2010",
+    conceito: "Combate à corrupção eleitoral",
+    ideia: "Lei de iniciativa popular que torna inelegíveis candidatos condenados por determinados crimes, buscando aumentar a transparência e a idoneidade na política brasileira.",
+    uso: "Repertório direto para temas sobre corrupção, democracia e participação popular na política.",
+    temas: ["democracia"]
+  },
+  {
+    nome: "Marco Legal do Saneamento Básico",
+    area: "lei",
+    obra: "Lei nº 14.026/2020",
+    conceito: "Universalização do saneamento básico",
+    ideia: "Estabelece metas para universalizar o acesso a água tratada e coleta de esgoto no Brasil até 2033, área em que o país ainda apresenta grandes desigualdades regionais.",
+    uso: "Bom para embasar propostas de intervenção sobre saneamento, saúde pública e desigualdade.",
+    temas: ["meio-ambiente", "desigualdade"]
+  },
+  {
+    nome: "CLT — Consolidação das Leis do Trabalho",
+    area: "lei",
+    obra: "Decreto-Lei nº 5.452/1943",
+    conceito: "Base dos direitos trabalhistas no Brasil",
+    ideia: "Conjunto de normas que regula as relações de trabalho no Brasil desde a Era Vargas, estabelecendo direitos como férias, 13º salário e jornada de trabalho.",
+    uso: "Repertório histórico-jurídico para temas sobre trabalho, precarização e direitos trabalhistas.",
+    temas: ["trabalho"]
+  },
+  {
+    nome: "Era Vargas e a origem do trabalhismo brasileiro",
+    area: "historia",
+    obra: "Brasil, 1930-1945",
+    conceito: "Criação dos direitos trabalhistas modernos no Brasil",
+    ideia: "Período em que o governo de Getúlio Vargas criou a legislação trabalhista brasileira, ampliando direitos dos trabalhadores urbanos, mas também com forte controle autoritário do Estado.",
+    uso: "Bom contraponto histórico para temas sobre trabalho e relação entre Estado e direitos sociais.",
+    temas: ["trabalho", "democracia"]
+  },
+  {
+    nome: "Plano Real",
+    area: "historia",
+    obra: "Brasil, 1994",
+    conceito: "Estabilização econômica e seus efeitos sociais",
+    ideia: "Plano que controlou a hiperinflação brasileira dos anos 1980-1990, mas cujos efeitos sociais foram desiguais, beneficiando mais quem já tinha acesso a bens e crédito.",
+    uso: "Bom repertório para temas sobre desigualdade econômica e política monetária no Brasil.",
+    temas: ["desigualdade"]
+  },
+  {
+    nome: "Bacurau (filme)",
+    area: "arte",
+    obra: "Filme, 2019",
+    conceito: "Resistência coletiva no interior do Brasil",
+    ideia: "Filme que retrata um vilarejo fictício do sertão nordestino que se une para resistir a ameaças externas, discutindo abandono do poder público e força da coletividade.",
+    uso: "Bom para temas sobre desigualdade regional, resistência comunitária e abandono estatal.",
+    temas: ["desigualdade", "violencia"]
+  },
+  {
+    nome: "\"Admirável Chip Novo\", de Pitty",
+    area: "arte",
+    obra: "Canção, 2003",
+    conceito: "Alienação e padronização pela tecnologia/mídia",
+    ideia: "Canção que critica a padronização do comportamento humano pela mídia e pelo consumo em massa, comparando pessoas a produtos programados.",
+    uso: "Repertório musical acessível para temas sobre tecnologia, alienação e cultura de massa.",
+    temas: ["tecnologia", "cultura"]
+  },
+  {
+    nome: "A Hora da Estrela, de Clarice Lispector",
+    area: "arte",
+    obra: "Romance, 1977",
+    conceito: "Invisibilidade da pobreza e da mulher nordestina",
+    ideia: "Romance que narra a vida de Macabéa, uma jovem nordestina pobre e migrante no Rio de Janeiro, expondo a invisibilidade social de quem vive à margem da sociedade.",
+    uso: "Repertório literário forte para temas sobre desigualdade, migração interna e invisibilidade social.",
+    temas: ["desigualdade", "cultura"]
   }
 ];
 
