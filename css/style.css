@@ -235,6 +235,27 @@ p { font-size: 1.25rem; }
   100% { left: 220px; bottom: 26px; }
 }
 
+/* ---------- Capa (hero) da página inicial ---------- */
+.hero-capa {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.hero-dragon {
+  width: 130px;
+  height: 130px;
+  min-width: 130px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 22px rgba(124, 58, 237, 0.55));
+}
+.hero-capa h1 { margin: 0 0 0.5rem; }
+.hero-capa .muted { margin: 0; }
+@media (max-width: 600px) {
+  .hero-capa { flex-direction: column; text-align: center; gap: 0.8rem; }
+  .hero-dragon { width: 100px; height: 100px; min-width: 100px; }
+}
+
 /* ---------- Frase do dia ---------- */
 .frase-dia {
   background: var(--roxo-escuro);
