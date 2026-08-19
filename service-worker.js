@@ -3,7 +3,7 @@
    depois da primeira visita (stale-while-revalidate)
 =========================================================== */
 
-const CACHE_NAME = "redacao-quest-v1";
+const CACHE_NAME = "redacao-quest-v2";
 
 const ASSETS = [
   "./",
